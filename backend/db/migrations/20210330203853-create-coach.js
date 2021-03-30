@@ -1,38 +1,41 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Coaches', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      parentEmail: {
+      username: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true
       },
-      username: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       firstName: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       lastName: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
+      },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+      },
+      hashedPassword: {
+        type: Sequelize.STRING.BINARY,
+        allowNull: false,
       },
       teamId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model:"Teams"}
-      },
-      hashedPassword: {
-        type: Sequelize.STRING.BINARY,
-        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -47,6 +50,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Coaches');
   }
 };

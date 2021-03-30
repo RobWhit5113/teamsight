@@ -1,12 +1,9 @@
 'use strict';
-const { Validator } = require('sequelize');
-const bcrypt = require('bcryptjs');
-
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    'User',
-    {
-      username: {
+  const Coach = sequelize.define(
+    'Coach', 
+  {
+    username: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -37,77 +34,60 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {model: "Teams"}
       },
-      parentEmail: {
+    email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [3, 256]
         }
       },
-      hashedPassword: {
+    hashedPassword: {
         type: DataTypes.STRING.BINARY,
         allowNull: false,
         validate: {
           len: [60, 60]
         }
       }
-    },
-    {
-      defaultScope: {
-        attributes: {
-          exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
-        }
-      },
-      scopes: {
-        currentUser: {
-          attributes: { exclude: ['hashedPassword'] }
-        },
-        loginUser: {
-          attributes: {}
-        }
-      }
-    }
-  );
-  User.associate = function (models) {
+  }, {});
+  Coach.associate = function(models) {
     // associations can be defined here
   };
-  User.prototype.toSafeObject = function () {
-    // remember, this cannot be an arrow function
-    const { id, username, parentEmail } = this; // context will be the User instance
-    return { id, username, parentEmail };
-  };
 
-  User.prototype.validatePassword = function (password) {
+  Coach.prototype.toSafeObject = function () {
+    // remember, this cannot be an arrow function
+    const { id, username, email } = this; // context will be the User instance
+    return { id, username, email };
+  };
+  Coach.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
   };
 
-  User.getCurrentUserById = async function (id) {
+  Coach.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);
   };
 
-  User.login = async function ({ credential, password }) {
+  Coach.login = async function ({ credential, password }) {
     const { Op } = require('sequelize');
-    const user = await User.scope('loginUser').findOne({
+    const coach = await Coach.scope('loginUser').findOne({
       where: {
         [Op.or]: {
           username: credential,
-          parentEmail: credential
+          email: credential
         }
       }
     });
-    if (user && user.validatePassword(password)) {
-      return await User.scope('currentUser').findByPk(user.id);
+    if (coach && coach.validatePassword(password)) {
+      return await Coach.scope('currentUser').findByPk(coach.id);
     }
-  };
-
-  User.signup = async function ({ username, email, password }) {
+  }
+  Coach.signup = async function ({ username, email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
-    const user = await User.create({
+    const coach = await Coach.create({
       username,
       email,
       hashedPassword
     });
-    return await User.scope('currentUser').findByPk(user.id);
+    return await Coach.scope('currentUser').findByPk(coach.id);
   };
-  return User;
-};
+  return Coach;
+  };
