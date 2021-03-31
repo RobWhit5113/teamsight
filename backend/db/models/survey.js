@@ -1,16 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Survey = sequelize.define('Survey', {
-    UserId: 
+    userId: 
     {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {model:"Users"}
+      references: {model:'Users'}
     },
     surveyDetailId: {
      type: DataTypes.INTEGER,
      allowNull: false,
-     references: {model:"SurveyDetails"}
+     references: {model:'SurveyDetails'}
     },
     answerOne: {
       type: DataTypes.INTEGER,
