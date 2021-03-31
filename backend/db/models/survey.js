@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Survey = sequelize.define('Survey', {
-    swimmerId: 
+    UserId: 
     {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {model:"Swimmers"}
+      references: {model:"Users"}
     },
-    surveyDetailsId: {
+    surveyDetailId: {
      type: DataTypes.INTEGER,
      allowNull: false,
      references: {model:"SurveyDetails"}
@@ -35,6 +35,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Survey.associate = function(models) {
     // associations can be defined here
+    Survey.belongsTo(models.User, {foreignKey: 'userId'})
+    Survey.belongsTo(models.SurveyDetail, {foreignKey: 'surveyDetailId'})
   };
   return Survey;
 };

@@ -51,6 +51,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Coach.associate = function(models) {
     // associations can be defined here
+    Coach.belongsTo(models.Team, {foreignKey: 'teamId'});
+    
   };
 
   Coach.prototype.toSafeObject = function () {

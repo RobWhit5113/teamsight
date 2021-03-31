@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      swimmerId: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {model:"Swimmers"}
+        references: {model:"Users"}
 
       },
       surveyDetailsId: {

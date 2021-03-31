@@ -8,9 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      swimmerId: {
+      userId: {
         type: Sequelize.INTEGER,
-        references: {model:"Swimmers"}
+        references: {model:"Users"}
       },
       goal: {
         type: Sequelize.STRING,
