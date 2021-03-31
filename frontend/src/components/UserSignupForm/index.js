@@ -4,12 +4,15 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
-function SignupFormPage() {
+function UserSignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const [email, setEmail] = useState("");
+  const [parentEmail, setParentEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [teamId, setTeamId] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -17,9 +20,10 @@ function SignupFormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = {parentEmail, password, username, firstName, lastName, teamId}
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      return dispatch(sessionActions.signup(data))
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
@@ -35,11 +39,29 @@ function SignupFormPage() {
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
-          Email
+          First Name
           <input
             type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Your Parent's Email
+          <input
+            type="text"
+            value={parentEmail}
+            onChange={(e) => setParentEmail(e.target.value)}
             required
           />
         </label>
@@ -70,10 +92,19 @@ function SignupFormPage() {
             required
           />
         </label>
+        <label>
+          Team ID
+          <input
+            type="text"
+            value={teamId}
+            onChange={(e) => setTeamId(e.target.value)}
+            required
+          />
+        </label>
         <button type="submit">Sign Up</button>
       </form>
     </>
   );
 }
 
-export default SignupFormPage;
+export default UserSignupFormPage;

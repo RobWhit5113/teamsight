@@ -9,7 +9,7 @@ const { User } = require('../../db/models');
 const router = express.Router();
 
 const validateSignup = [
-  check('parent_email')
+  check('parentEmail')
     .exists({ checkFalsy: true })
     .isEmail()
     .withMessage('Please provide a valid email.'),
