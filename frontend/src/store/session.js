@@ -17,9 +17,15 @@ export const login = ({ credential, password }) => async (dispatch) => {
     method: 'POST',
     body: JSON.stringify({ credential, password })
   });
+  if(res.data.user){
   dispatch(setUser(res.data.user));
   return res;
+  }else if (res.data.coach){
+    dispatch(setUser(res.data.coach));
+    return res;
+  }
 };
+
 
 export const restoreUser = () => async (dispatch) => {
   const res = await fetch('/api/session');
@@ -28,19 +34,28 @@ export const restoreUser = () => async (dispatch) => {
 };
 
 export const signup = (user) => async (dispatch) => {
-  const { username, email, password } = user;
+  const { username, parentEmail, password, firstName, lastName, teamId  } = user;
   const response = await fetch('/api/users', {
     method: 'POST',
     body: JSON.stringify({
-      username,
-      email,
-      password
+      username, parentEmail, password, firstName, lastName, teamId
     })
   });
 
   dispatch(setUser(response.data.user));
   return response;
 };
+
+export const coachSignup = (coach) => async(dispatch) => {
+  const res = await fetch('/api/coaches', {
+    method: 'POST',
+    body: JSON.stringify(coach)
+  })
+  if(res.ok){
+    dispatch(setUser(res.data.coach))
+    return res
+  }
+}
 
 export const logout = () => async (dispatch) => {
   const response = await fetch('/api/session', {

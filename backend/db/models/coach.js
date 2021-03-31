@@ -1,4 +1,7 @@
 'use strict';
+const { Validator } = require('sequelize');
+const bcrypt = require('bcryptjs');
+
 module.exports = (sequelize, DataTypes) => {
   const Coach = sequelize.define(
     'Coach', 
@@ -48,7 +51,20 @@ module.exports = (sequelize, DataTypes) => {
           len: [60, 60]
         }
       }
-  }, {});
+  },
+   {defaultScope: {
+        attributes: {
+          exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
+        }
+      },
+      scopes: {
+        currentUser: {
+          attributes: { exclude: ['hashedPassword'] }
+        },
+        loginUser: {
+          attributes: {}
+        }
+      }});
   Coach.associate = function(models) {
     // associations can be defined here
     Coach.belongsTo(models.Team, {foreignKey: 'teamId'});
@@ -82,12 +98,10 @@ module.exports = (sequelize, DataTypes) => {
       return await Coach.scope('currentUser').findByPk(coach.id);
     }
   }
-  Coach.signup = async function ({ username, email, password }) {
+  Coach.signup = async function ({ email, password, username, firstName, lastName, teamId }) {
     const hashedPassword = bcrypt.hashSync(password);
     const coach = await Coach.create({
-      username,
-      email,
-      hashedPassword
+      email, hashedPassword, username, firstName, lastName, teamId
     });
     return await Coach.scope('currentUser').findByPk(coach.id);
   };

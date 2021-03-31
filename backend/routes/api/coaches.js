@@ -27,5 +27,16 @@ const validateSignup = [
 
 // Sign Up
 router.post(
-  '/'
+  '/', validateSignup, asyncHandler(async(req,res) => {
+    const {username, firstName, lastName, email, password, teamId} = req.body
+    const coach = await Coach.signup({username, firstName, lastName, email, password, teamId})
+
+    await setTokenCookie(res, coach)
+
+    return res.json({coach})
+  })
 )
+
+
+
+module.exports = router
