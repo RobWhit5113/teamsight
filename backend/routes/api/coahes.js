@@ -4,12 +4,12 @@ const asyncHandler = require('express-async-handler');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { Coach } = require('../../db/models');
 
-const router = express.Router();
+const router = express.Router()
 
 const validateSignup = [
-  check('parent_email')
+  check('email')
     .exists({ checkFalsy: true })
     .isEmail()
     .withMessage('Please provide a valid email.'),
@@ -25,20 +25,7 @@ const validateSignup = [
   handleValidationErrors
 ];
 
-// Sign up
+// Sign Up
 router.post(
-  '/',
-  validateSignup,
-  asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
-
-    await setTokenCookie(res, user);
-
-    return res.json({
-      user
-    });
-  })
-);
-
-module.exports = router;
+  '/'
+)
