@@ -17,9 +17,15 @@ export const login = ({ credential, password }) => async (dispatch) => {
     method: 'POST',
     body: JSON.stringify({ credential, password })
   });
+  if(res.data.user){
   dispatch(setUser(res.data.user));
   return res;
+  }else if (res.data.coach){
+    dispatch(setUser(res.data.coach));
+    return res;
+  }
 };
+
 
 export const restoreUser = () => async (dispatch) => {
   const res = await fetch('/api/session');

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
+import * as sessionActions from "../../../store/session";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { teamSignup } from "../../store/team";
+import { teamSignup } from "../../../store/team";
 
 
 
@@ -45,7 +45,7 @@ function TeamSignUpForm() {
           onChange={e => setLocation(e.target.value)}
         />
         <Button variant="outlined" color="primary" onClick={handleSubmit}>
-          Primary
+          Next
         </Button>
       </form>
     </>

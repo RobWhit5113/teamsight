@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import {useHistory} from "react-router-dom"
+import Button from '@material-ui/core/Button';
+
 
 function QuestionComponent({setShowModal}) {
   const history = useHistory()
@@ -19,8 +21,12 @@ function QuestionComponent({setShowModal}) {
   return (
     <>
       <h2>Are you a Coach?</h2>
-      <button onClick={ifCoach}>Yes</button>
-      <button onClick={ifUser}>No</button>
+      <Button variant="outlined" color="primary" onClick={ifCoach}>
+          Yes
+        </Button>
+      <Button variant="outlined" color="primary" onClick={ifUser}>
+          No
+        </Button>
     </>
   );
 }
