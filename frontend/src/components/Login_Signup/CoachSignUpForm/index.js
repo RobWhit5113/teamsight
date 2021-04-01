@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../../store/session";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -8,6 +8,7 @@ import { Typography } from "@material-ui/core";
 
 function CoachSignupFormPage() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -20,7 +21,7 @@ function CoachSignupFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {email, password, username, firstName, lastName, teamId}
     if (password === confirmPassword) {
@@ -29,8 +30,10 @@ function CoachSignupFormPage() {
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
+        history.push('/home')
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
+    
   };
 
   return(

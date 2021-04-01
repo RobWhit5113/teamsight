@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../../store/session";
 import { useDispatch } from "react-redux";
+import {useHistory} from "react-router-dom"
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "./LoginForm.css";
@@ -8,18 +9,21 @@ import { Typography } from "@material-ui/core";
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
-      (res) => {
-        if (res.data && res.data.errors) setErrors(res.data.errors);
+    await dispatch(sessionActions.login({ credential, password })).catch(
+      async (res) => {
+        if (res.data && res.data.errors) setErrors(res.data.errors)
+          
       }
     );
+    history.push('/home')
   };
 
   return (
