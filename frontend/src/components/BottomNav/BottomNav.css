@@ -1,0 +1,29 @@
+.bottom-nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: #F2F2F2;
+}
+
+.bottom_home,
+.bottom_practice,
+.bottom_goals{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  cursor: pointer;
+}
+.bottom_home:hover,
+.bottom_practice:hover,
+.bottom_goals:hover{
+  border-bottom:1px solid #252466;
+  
+}
+
+svg{
+  align-self: center;
+  
+}
+
+svg:hover{
+  color: #252466;
+}
