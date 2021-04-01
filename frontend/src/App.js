@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import TeamSignUpForm from "./components/Login_Signup/TeamSignUpForm";
 import CoachSignupFormPage from "./components/Login_Signup/CoachSignUpForm";
+import SplashPage from "./components/SplashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
           {/* <Route path="/login" >
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/user_signup">
             <UserSignupForm />
+          </Route>
+          <Route exact to="/" >
+            <SplashPage/>
           </Route>
         </Switch>
       )}

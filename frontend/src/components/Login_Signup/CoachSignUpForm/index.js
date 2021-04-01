@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../../store/session";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Typography } from "@material-ui/core";
 
 function CoachSignupFormPage() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function CoachSignupFormPage() {
 
   return(
     <>
-      <h1>Sign Up</h1>
+      <Typography variant="h3" color="primary">Sign Up</Typography>
       <form>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}

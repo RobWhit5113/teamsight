@@ -11,6 +11,8 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
+import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core';
 
 const store = configureStore();
 
@@ -28,16 +30,51 @@ if (process.env.NODE_ENV !== 'production') {
 //   </div>
 // );
 
+const theme = createMuiTheme({
+  palette: {
+    //purple
+    primary:{
+      main: "#252466",
+    },
+    //teal
+    secondary:{ 
+      main: "#4DCCBD"
+    },
+    //white
+    background: {
+      default: "fafafa"
+    },
+    //darkgrey and teal
+    text :{
+      primary: "#333333",
+      secondary: "252466"
+    }
+  },
+  typography: {
+    fontFamily: [
+      'Comfortaa',
+      'cursive'
+    ].join(','),
+    body1:{
+      fontFamily:[
+      'Montserrat', 'sans-serif'
+    ].join(',')
+  }
+  }
+})
+
 function Root() {
   return (
-    <ModalProvider>
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-          {/* <Carrot /> */}
-        </BrowserRouter>
-      </Provider>
-    </ModalProvider>
+    <ThemeProvider theme={theme}>
+      <ModalProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <App />
+            {/* <Carrot /> */}
+          </BrowserRouter>
+        </Provider>
+      </ModalProvider>
+    </ThemeProvider>
   );
 }
 

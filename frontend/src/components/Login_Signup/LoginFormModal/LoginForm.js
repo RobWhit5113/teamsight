@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "./LoginForm.css";
+import { Typography } from "@material-ui/core";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function LoginForm() {
 
   return (
     <>
-      <h1>Log In</h1>
+      <Typography variant="h2" color="primary">Log In</Typography>
       <form>
         <ul>
           {errors.map((error, idx) => (

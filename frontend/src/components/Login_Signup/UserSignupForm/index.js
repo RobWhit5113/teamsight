@@ -5,6 +5,7 @@ import * as sessionActions from "../../../store/session";
 import './SignupForm.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Typography } from "@material-ui/core";
 
 function UserSignupFormPage() {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ function UserSignupFormPage() {
 
   return (
     <>
-      <h1>Sign Up</h1>
+      <Typography variant="h3" color="primary">Sign Up</Typography>
       <form>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}

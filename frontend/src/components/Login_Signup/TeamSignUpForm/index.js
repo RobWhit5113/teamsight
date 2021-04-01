@@ -6,6 +6,7 @@ import * as sessionActions from "../../../store/session";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { teamSignup } from "../../../store/team";
+import { Typography } from "@material-ui/core";
 
 
 
@@ -30,7 +31,7 @@ function TeamSignUpForm() {
 
   return(
     <>
-      <h1>Team Signup</h1>
+      <Typography variant="h2" color="primary">Team Sign Up</Typography>
       <form>
         <ul> 
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}

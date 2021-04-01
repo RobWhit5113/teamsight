@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import LoginForm from './LoginForm';
@@ -7,7 +8,8 @@ function LoginFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
+      <Button variant="outlined" color="primary"
+       onClick={() => setShowModal(true)}>Log In</Button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useHistory} from "react-router-dom"
 import Button from '@material-ui/core/Button';
+import { Typography } from "@material-ui/core";
 
 
 function QuestionComponent({setShowModal}) {
@@ -20,7 +21,7 @@ function QuestionComponent({setShowModal}) {
 
   return (
     <>
-      <h2>Are you a Coach?</h2>
+      <Typography variant="h2" color="primary">Are you a Coach?</Typography>
       <Button variant="outlined" color="primary" onClick={ifCoach}>
           Yes
         </Button>
