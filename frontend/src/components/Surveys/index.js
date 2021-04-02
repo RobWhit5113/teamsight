@@ -4,10 +4,14 @@ import { useHistory } from 'react-router-dom'
 import { Button, Typography } from '@material-ui/core';
 import PrePracticeModal from "./PrePracticeModal"
 import PostPracticeModal from './PostPracticeModal';
+import CoachGraph from './CoachGraph';
+import Navigation from '../Navigation';
+import BottomNav from '../BottomNav';
 
 export default function Surveys() {
-  
-  return (
+  const sessionUser = useSelector(state => state.session.user);
+
+  const swimmer = (
     <>
       <Typography variant="h4" color="primary">Surveys</Typography>
 
@@ -15,5 +19,17 @@ export default function Surveys() {
       <PrePracticeModal />
       <PostPracticeModal />
     </>
+  )
+
+  const coach = (
+    <CoachGraph />
+
+  )
+  return (
+    <>
+      <Navigation/>
+      {sessionUser.isCoach ? coach : swimmer}
+      <BottomNav/>
+    </> 
   )
 }

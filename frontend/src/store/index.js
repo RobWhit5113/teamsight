@@ -1,11 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import rosterReducer from './roster';
 import session from './session';
 import teamReducer from './team';
 
 const rootReducer = combineReducers({
   session,
   team: teamReducer, 
+  roster: rosterReducer
 });
 
 let enhancer;
