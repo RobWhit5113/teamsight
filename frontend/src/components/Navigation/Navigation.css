@@ -1,3 +1,5 @@
-.profile-dropdown {
-  position: absolute;
+.top-nav {
+  display: flex;
+  background-color: #F2F2F2;
+  justify-content: flex-end;
 }
