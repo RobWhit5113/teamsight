@@ -7,11 +7,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       references: {model:'Users'}
     },
-    surveyDetailId: {
-     type: DataTypes.INTEGER,
-     allowNull: false,
-     references: {model:'SurveyDetails'}
-    },
     answerOne: {
       type: DataTypes.INTEGER,
       allowNull: false,

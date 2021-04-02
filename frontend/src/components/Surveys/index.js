@@ -7,6 +7,7 @@ import PostPracticeModal from './PostPracticeModal';
 import CoachGraph from './CoachGraph';
 import Navigation from '../Navigation';
 import BottomNav from '../BottomNav';
+import AthleteCards from './AthleteCards';
 
 export default function Surveys() {
   const sessionUser = useSelector(state => state.session.user);
@@ -22,7 +23,10 @@ export default function Surveys() {
   )
 
   const coach = (
-    <CoachGraph />
+    <>
+      <CoachGraph />
+      <AthleteCards />
+    </>
 
   )
   return (

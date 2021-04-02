@@ -17,13 +17,19 @@ export const getRoster = (teamId) => async(dispatch) => {
   }
 }
 
+let current_datetime = new Date()
+let formatted_date = current_datetime.getFullYear() + "-0" + 
+(current_datetime.getMonth() + 1) + 
+"-0" + current_datetime.getDate()
 const rosterReducer = (state={}, action) => {
   let newState 
   switch (action.type) {
     case SET_ROSTER:
       newState = {}
       action.payload.forEach(person => {
-        if(!person.isCoach){
+        if(!person.isCoach && 
+          person.Surveys[0].createdAt.toString().slice(0,10) == formatted_date
+          ){
           newState[person.id] = person
         }
       })
