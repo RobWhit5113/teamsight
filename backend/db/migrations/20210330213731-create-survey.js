@@ -14,25 +14,9 @@ module.exports = {
         references: {model:'Users'}
 
       },
-      surveyDetailId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model:'SurveyDetails'}
-      },
       answerOne: {
         type: Sequelize.INTEGER,
         allowNull: false,
-      },
-      answerTwo: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      answerThree: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      answerFour: {
-        type: Sequelize.STRING
       },
       isCompleted: {
         type: Sequelize.BOOLEAN,
@@ -43,11 +27,6 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('now')
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
-      }
     });
   },
   down: (queryInterface, Sequelize) => {

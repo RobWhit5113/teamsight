@@ -16,18 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    answerTwo: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    answerThree: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    answerFour: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     isCompleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false
@@ -36,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
   Survey.associate = function(models) {
     // associations can be defined here
     Survey.belongsTo(models.User, {foreignKey: 'userId'})
-    Survey.belongsTo(models.SurveyDetail, {foreignKey: 'surveyDetailId'})
   };
   return Survey;
 };

@@ -5,40 +5,25 @@ module.exports = {
     return queryInterface.bulkInsert('Surveys', [
       {
         userId: 1,
-        surveyDetailId: 1,
         answerOne: 5,
-        answerTwo: 3,
-        answerThree: 4,
-        answerFour: 'My shoulder hurts',
         isCompleted: true
       },
       {
-        userId: 1,
-        surveyDetailId: 2,
-        answerOne: 5,
-        answerTwo: 5,
-        answerThree: 5,
-        answerFour: 'I feel GREAT!',
+        userId: 2,
+        answerOne: 4,
         isCompleted: true
       },
       {
-        userId: 1,
-        surveyDetailId: 1,
+        userId: 3,
         answerOne: 2,
-        answerTwo: 3,
-        answerThree: 2,
-        answerFour: 'I am really tired',
         isCompleted: true
       },
       {
-        userId: 1,
-        surveyDetailId: 2,
-        answerOne: 1,
-        answerTwo: 1,
-        answerThree: 1,
-        answerFour: 'Gassed!',
+        userId: 4,
+        answerOne: 3,
         isCompleted: true
       },
+      
     ], {});
     /*
       Add altering commands here.
