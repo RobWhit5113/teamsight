@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const teamsRouter = require('./teams.js')
+const rosterRouter = require('./roster.js')
 
 
 // GET /api/set-token-cookie
@@ -46,6 +47,8 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 router.use('/team', teamsRouter)
+
+router.use('/roster', rosterRouter)
 
 
 module.exports = router;
