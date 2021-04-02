@@ -9,7 +9,6 @@ import { Typography } from "@material-ui/core";
 function CoachSignupFormPage() {
   const dispatch = useDispatch();
   const history = useHistory()
-  const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +19,6 @@ function CoachSignupFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

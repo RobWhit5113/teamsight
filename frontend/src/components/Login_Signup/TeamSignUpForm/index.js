@@ -20,8 +20,6 @@ function TeamSignUpForm() {
   const [location, setLocation] = useState("")
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
-
   const handleSubmit = async(e) => {
     e.preventDefault()
     const teamData = {teamName, teamLogo, location}
