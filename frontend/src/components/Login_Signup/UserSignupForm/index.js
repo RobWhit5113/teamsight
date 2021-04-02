@@ -11,12 +11,13 @@ function UserSignupFormPage() {
   const dispatch = useDispatch();
   const history = useHistory()
   const sessionUser = useSelector((state) => state.session.user);
-  const [parentEmail, setParentEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [teamId, setTeamId] = useState("");
+  const [isCoach, setIsCoach] = useState(false)
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -24,7 +25,7 @@ function UserSignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {parentEmail, password, username, firstName, lastName, teamId}
+    const data = {email, password, username, firstName, lastName, isCoach, teamId}
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup(data))
@@ -51,8 +52,8 @@ function UserSignupFormPage() {
         onChange={e => setFirstName(e.target.value)} required/>
         <TextField id="standard-basic" label="Last Name" value={lastName}
         onChange={(e) => setLastName(e.target.value)} required/>
-        <TextField id="standard-basic" label="Email" value={parentEmail}
-        onChange={(e) => setParentEmail(e.target.value)} required/>
+        <TextField id="standard-basic" label="Email" value={email}
+        onChange={(e) => setEmail(e.target.value)} required/>
         <TextField id="standard-basic" label="Username" value={username}
         onChange={(e) => setUsername(e.target.value)} required/>
         <TextField id="standard-basic" label="Password" value={password}

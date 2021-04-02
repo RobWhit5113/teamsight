@@ -30,7 +30,7 @@ export default function MyWeeklySummary(){
   return (
     <>
       <Typography variant="h3" color="primary">My Weekly Summary</Typography>
-      {sessionUser.parentEmail ? athleteSummary : <h1>coach</h1>}
+      {sessionUser.isCoach ?  <h1>coach</h1> : athleteSummary}
     </>  
   )
 

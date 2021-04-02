@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Team.associate = function(models) {
     // associations can be defined here
-    Team.hasOne(models.Coach, {foreignKey: 'teamId'});
     Team.hasMany(models.User, {foreignKey: 'teamId'})
   };
   return Team;

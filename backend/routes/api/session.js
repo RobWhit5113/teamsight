@@ -26,9 +26,8 @@ router.post(
   asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
     const user = await User.login({ credential, password });
-    const coach = await Coach.login({credential, password});
 
-    if (!user && !coach) {
+    if (!user) {
       const err = new Error('Login failed');
       err.status = 401;
       err.title = 'Login failed';
@@ -41,40 +40,11 @@ router.post(
       return res.json({
         user
       });
-    } else if(coach){
-      await setTokenCookie(res, coach);
-  
-      return res.json({
-        coach
-      });
-    }
+    } 
 
   })
 );
 
-// Coach Log in
-// router.post(
-//   '/',
-//   validateLogin,
-//   asyncHandler(async (req, res, next) => {
-//     const { credential, password } = req.body;
-//     const coach = await Coach.login({ credential, password });
-
-//     if (!coach) {
-//       const err = new Error('Login failed');
-//       err.status = 401;
-//       err.title = 'Login failed';
-//       err.errors = ['The provided credentials were invalid.'];
-//       return next(err);
-//     }
-
-//     await setTokenCookie(res, coach);
-
-//     return res.json({
-//       user
-//     });
-//   })
-// );
 
 // Log out
 router.delete('/', (_req, res) => {
@@ -84,8 +54,7 @@ router.delete('/', (_req, res) => {
 
 // Restore session user
 router.get('/', restoreUser, (req, res) => {
-  console.log(">>>>>>>>>>>>>",req.user)
-  console.log(">>>>>>>>>>>>>",req.coach)
+
   const { user } = req;
   if (user) {
     return res.json({

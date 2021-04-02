@@ -9,14 +9,14 @@ function QuestionComponent({setShowModal}) {
 
   const ifCoach = (e) => {
     e.preventDefault()
-    setShowModal(false)
     history.push('/team_signup')
+    setShowModal(false)
   };
 
   const ifUser = e => {
     e.preventDefault()
-    setShowModal(false)
     history.push('/user_signup')
+    setShowModal(false)
   }
 
   return (

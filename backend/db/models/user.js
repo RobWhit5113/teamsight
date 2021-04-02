@@ -37,12 +37,16 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {model: "Teams"}
       },
-      parentEmail: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [3, 256]
         }
+      },
+      isCoach: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
       },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
@@ -76,8 +80,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function
-    const { id, username, parentEmail } = this; // context will be the User instance
-    return { id, username, parentEmail };
+    const { id, username, email } = this; // context will be the User instance
+    return { id, username, email };
   };
 
   User.prototype.validatePassword = function (password) {
@@ -94,7 +98,7 @@ module.exports = (sequelize, DataTypes) => {
       where: {
         [Op.or]: {
           username: credential,
-          parentEmail: credential
+          email: credential
         }
       }
     });
@@ -103,10 +107,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ parentEmail, password, username, firstName, lastName, teamId }) {
+  User.signup = async function ({ email, password, username, firstName, lastName, teamId }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
-      parentEmail, hashedPassword, username, firstName, lastName, teamId
+      email, hashedPassword, username, firstName, lastName, teamId
     });
     return await User.scope('currentUser').findByPk(user.id);
   };

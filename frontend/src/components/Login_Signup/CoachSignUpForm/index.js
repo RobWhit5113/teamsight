@@ -16,6 +16,7 @@ function CoachSignupFormPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [teamId, setTeamId] = useState("");
+  const [isCoach, setIsCoach] = useState(true)
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -23,16 +24,17 @@ function CoachSignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {email, password, username, firstName, lastName, teamId}
+    const data = {email, password, username, firstName, lastName, isCoach, teamId}
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.coachSignup(data))
+      await dispatch(sessionActions.signup(data))
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
-        history.push('/home')
+        
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    history.push('/home')
+    // return setErrors(['Confirm Password field must be the same as the Password field']);
     
   };
 
