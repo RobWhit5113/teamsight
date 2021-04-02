@@ -12,12 +12,12 @@
   align-content: center;
   cursor: pointer;
 }
-.bottom_home:hover,
+/* .bottom_home:hover,
 .bottom_practice:hover,
 .bottom_goals:hover{
   border-bottom:1px solid #252466;
   
-}
+} */
 
 svg{
   align-self: center;
