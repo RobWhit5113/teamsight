@@ -8,31 +8,51 @@ module.exports = {
       'Users',
       [
         {
-          parentEmail: 'demo@user.io',
+          email: 'demo@user.io',
           username: 'DemoSwimmer',
           firstName: 'Swimmy',
           lastName: 'Swimmerson',
           teamId: 1,
+          isCoach: false,
           hashedPassword: bcrypt.hashSync('password')
         },
         {
-          parentEmail: 'demo2@user.io',
+          email: 'demo2@user.io',
           username: 'DemoSlowSwimmer',
           firstName: 'Sinky',
           lastName: 'Sinkerson',
           teamId: 1,
+          isCoach: false,
+          hashedPassword: bcrypt.hashSync('password')
+        },
+        {
+          email: 'demo3@user.io',
+          username: 'DemoBreastroker',
+          firstName: 'Sinky',
+          lastName: 'Sinkerson',
+          teamId: 1,
+          isCoach: false,
+          hashedPassword: bcrypt.hashSync('password')
+        },
+        {
+          email: 'demo4@user.io',
+          username: 'DemoBackstroker',
+          firstName: 'Sinky',
+          lastName: 'Sinkerson',
+          teamId: 1,
+          isCoach: false,
+          hashedPassword: bcrypt.hashSync('password')
+        },
+        {
+          email: 'coachtrent@swim.io',
+          username: 'coachtrent',
+          firstName: 'Trent',
+          lastName: 'Jackson',
+          teamId: 1,
+          isCoach: true,
           hashedPassword: bcrypt.hashSync('password')
         }
-        // {
-        //   parent_email: faker.internet.email(),
-        //   username: 'FakeUser1',
-        //   hashedPassword: bcrypt.hashSync(faker.internet.password())
-        // },
-        // {
-        //   parent_email: faker.internet.email(),
-        //   username: 'FakeUser2',
-        //   hashedPassword: bcrypt.hashSync(faker.internet.password())
-        // }
+        
       ],
       {}
     );

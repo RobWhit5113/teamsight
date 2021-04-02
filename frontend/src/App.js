@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import TeamSignUpForm from "./components/Login_Signup/TeamSignUpForm";
 import CoachSignupFormPage from "./components/Login_Signup/CoachSignUpForm";
 import SplashPage from "./components/SplashPage";
+import HomeContainer from "./components/HomeContainer";
+import Surveys from "./components/Surveys";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +35,13 @@ function App() {
           <Route path="/user_signup">
             <UserSignupForm />
           </Route>
-          <Route exact to="/" >
+          <Route path="/home">
+            <HomeContainer/>
+          </Route>
+          <Route path="/log">
+            <Surveys />
+          </Route>
+          <Route exact path="/" >
             <SplashPage/>
           </Route>
         </Switch>

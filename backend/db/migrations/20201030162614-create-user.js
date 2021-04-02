@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      parentEmail: {
+      email: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true
@@ -29,6 +29,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model:"Teams"}
+      },
+      isCoach:{
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        deafaultValue: false
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,

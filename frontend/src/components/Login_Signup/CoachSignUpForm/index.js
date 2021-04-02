@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../../store/session";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -8,29 +8,32 @@ import { Typography } from "@material-ui/core";
 
 function CoachSignupFormPage() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [teamId, setTeamId] = useState("");
+  const [isCoach, setIsCoach] = useState(true)
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {email, password, username, firstName, lastName, teamId}
+    const data = {email, password, username, firstName, lastName, isCoach, teamId}
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.coachSignup(data))
+      await dispatch(sessionActions.signup(data))
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
+        
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    history.push('/home')
+    // return setErrors(['Confirm Password field must be the same as the Password field']);
+    
   };
 
   return(
