@@ -1,27 +1,38 @@
 import { Button } from "@material-ui/core";
-import React, { useState } from "react";
+import Typography from '@material-ui/core/Typography';
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from "react-router-dom"
 import Slider from "react-slick";
+import { getGoals } from "../../../store/goals";
 import { completeSurvey } from "../../../store/survey";
 import './PrePracticeSurvey.css'
 
 
-function PrePracticeForm({setShowModal}){
+function PrePracticeForm(){
   const dispatch = useDispatch()
   const history = useHistory()
   const sessionUser = useSelector((state) => state.session.user);
+  const goalsObjs = useSelector((state) => state?.goals)
 
   const [answerOne, setAnswerOne] = useState("")
+  const [focusOne, setFocusOne] = useState("")
+  const [focusTwo, setFocusTwo] = useState("")
   const [isCompleted, setIsCompleted] = useState(false)
   const [selected, isSelected] = useState(false)
 
-  let settings = {
-    dot: true,
-    infinite: true, 
-    speed:500, 
-  }
+  useEffect(async () => {
+    console.log(sessionUser.id)
+    await dispatch(getGoals(sessionUser.id))
+  },[])
+
+  // let settings = {
+  //   dot: true,
+  //   infinite: true, 
+  //   speed:500, 
+  // }
   const userId = sessionUser.id
+  const goals = Object.values(goalsObjs)
   
   const handleComplete = async(e) => {
     e.preventDefault()
@@ -75,6 +86,12 @@ function PrePracticeForm({setShowModal}){
         <div className="mood" id={5} onClick={e => setAnswerOne(e.target.id)}>
           <h3>great</h3>
         </div>
+      </div>
+      <Typography variant="h5" color="primary">which goals are you going to focus on?</Typography>
+      <div className="goals-container">
+        {goals && goals.map(goal => (
+          <h6>{goal.goal}</h6>
+        ))}
       </div>
       <Button variant="contained" color="secondary" onClick={handleComplete}>
         Mark Complete!</Button>

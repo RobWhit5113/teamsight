@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import goalsReducer from './goals';
 import rosterReducer from './roster';
 import session from './session';
 import surveyReducer from './survey';
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
   session,
   team: teamReducer, 
   roster: rosterReducer,
-  survey: surveyReducer
+  survey: surveyReducer,
+  goals: goalsReducer
 });
 
 let enhancer;
