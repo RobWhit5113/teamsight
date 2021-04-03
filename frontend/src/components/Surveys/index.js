@@ -3,7 +3,6 @@ import {useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Button, Typography } from '@material-ui/core';
 import PrePracticeModal from "./PrePracticeModal"
-import PostPracticeModal from './PostPracticeModal';
 import CoachGraph from './CoachGraph';
 import Navigation from '../Navigation';
 import BottomNav from '../BottomNav';
@@ -18,7 +17,7 @@ export default function Surveys() {
 
       {/* <Typography variant="body1" color="primary">Pre-Practice</Typography> */}
       <PrePracticeModal />
-      <PostPracticeModal />
+
     </>
   )
 

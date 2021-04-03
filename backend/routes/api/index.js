@@ -3,7 +3,7 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const teamsRouter = require('./teams.js')
 const rosterRouter = require('./roster.js')
-const averageRouter = require('./average')
+
 
 
 // GET /api/set-token-cookie
@@ -51,7 +51,7 @@ router.use('/team', teamsRouter)
 
 router.use('/roster', rosterRouter)
 
-router.use('/average', averageRouter)
+
 
 
 module.exports = router;

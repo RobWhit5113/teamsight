@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { getRoster } from '../../../store/roster';
 import {useDispatch} from 'react-redux'
-import { getAverage } from '../../../store/average';
+
 
 
 function CoachGraph(){
