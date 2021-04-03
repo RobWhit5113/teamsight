@@ -2,7 +2,7 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Button, Typography } from '@material-ui/core';
-import PrePracticeModal from "./PrePracticeModal"
+import PrePracticeSurvey from "./PrePracticeSurvey"
 import CoachGraph from './CoachGraph';
 import Navigation from '../Navigation';
 import BottomNav from '../BottomNav';
@@ -13,10 +13,9 @@ export default function Surveys() {
 
   const swimmer = (
     <>
-      <Typography variant="h4" color="primary">Surveys</Typography>
+      <Typography variant="h4" color="primary">how are you feeling today?</Typography>
+      <PrePracticeSurvey />
 
-      {/* <Typography variant="body1" color="primary">Pre-Practice</Typography> */}
-      <PrePracticeModal />
 
     </>
   )
