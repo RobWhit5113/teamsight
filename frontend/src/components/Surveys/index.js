@@ -13,8 +13,10 @@ export default function Surveys() {
 
   const swimmer = (
     <>
-      <Typography variant="h4" color="primary">how are you feeling today?</Typography>
+      <Typography variant="h5" color="primary">how are you feeling today?</Typography>
       <PrePracticeSurvey />
+      <Typography variant="h5" color="primary">which goals are you going to focus on?</Typography>
+      <Typography variant="h5" color="primary">is there anything else that you would like me to know?</Typography>
 
 
     </>

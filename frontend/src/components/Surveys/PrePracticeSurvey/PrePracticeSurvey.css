@@ -1,0 +1,8 @@
+.mood{
+  cursor: pointer;
+}
+
+.mood-container{
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from "react-router-dom"
 import Slider from "react-slick";
 import { completeSurvey } from "../../../store/survey";
+import './PrePracticeSurvey.css'
 
 
 function PrePracticeForm({setShowModal}){
@@ -19,9 +20,6 @@ function PrePracticeForm({setShowModal}){
     dot: true,
     infinite: true, 
     speed:500, 
-    slidesToShow: 3,
-    slidesToScroll:1,
-    cssEase: "linear"
   }
   const userId = sessionUser.id
   
@@ -34,28 +32,49 @@ function PrePracticeForm({setShowModal}){
 
   return(
     <>
-      <Slider {...settings}>
-        <div className="smiley-wrapper">
-          <div className="smiley-image">
-            <img src="https://cdn.pixabay.com/photo/2017/11/26/15/16/smiley-2979107__340.jpg"/>
-            <p>great!</p>
+      {/* <Slider {...settings}>
+        <div className="card-wrapper">
+          <div className="smiley-image" id={1} onClick={e => setAnswerOne(e.target.id)}>
+            <h3>Really Bad</h3>
           </div>
         </div>
-      </Slider>
-      <div id={1} onClick={e => setAnswerOne(e.target.id)}>
-        Very Bad
-      </div>
-      <div id={2} onClick={e => setAnswerOne(e.target.id)}>
-        Bad
-      </div>
-      <div id={3} onClick={e => setAnswerOne(e.target.id)}>
-        Alright
-      </div>
-      <div id={4} onClick={e => setAnswerOne(e.target.id)}>
-        Good
-      </div>
-      <div id={5} onClick={e => setAnswerOne(e.target.id)}>
-        Great!
+        <div className="card-wrapper">
+          <div className="smiley-image" id={2} onClick={e => setAnswerOne(e.target.id)}>
+            <h3>Bad</h3>
+          </div>
+        </div>
+        <div className="card-wrapper">
+          <div className="smiley-image" id={3} onClick={e => setAnswerOne(e.target.id)}>
+            <h3>Alright</h3>
+          </div>
+        </div>
+        <div className="card-wrapper">
+          <div className="smiley-image" id={4} onClick={e => setAnswerOne(e.target.id)}>
+           <h3>Good</h3>
+          </div>
+        </div>
+        <div className="card-wrapper">
+          <div className="smiley-image" id={5} onClick={e => setAnswerOne(e.target.id)}>
+            <h3>Great!</h3>
+          </div>
+        </div>
+      </Slider> */}
+      <div className="mood-container">
+        <div className="mood" id={1} onClick={e => setAnswerOne(e.target.id)}>
+          <h3>really bad</h3>
+        </div>
+        <div className="mood" id={2} onClick={e => setAnswerOne(e.target.id)}>
+          <h3>bad</h3>
+        </div>
+        <div className="mood" id={3} onClick={e => setAnswerOne(e.target.id)}>
+          <h3>neutral</h3>
+        </div>
+        <div className="mood" id={4} onClick={e => setAnswerOne(e.target.id)}>
+          <h3>good</h3>
+        </div>
+        <div className="mood" id={5} onClick={e => setAnswerOne(e.target.id)}>
+          <h3>great</h3>
+        </div>
       </div>
       <Button variant="contained" color="secondary" onClick={handleComplete}>
         Mark Complete!</Button>
