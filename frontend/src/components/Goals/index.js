@@ -1,7 +1,11 @@
+import { Button, Typography } from '@material-ui/core';
 import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import {useDispatch} from 'react-redux'
 import { getGoals } from "../../store/goals";
+import BottomNav from '../BottomNav';
+import Navigation from '../Navigation';
+import NewGoalModal from './NewGoalFormModal';
 
 
 function GoalsComponent (){
@@ -18,9 +22,15 @@ const goals = Object.values(goalsObjs)
 
 return (
   <>
+    <Navigation />
+    <Typography variant="h4" color="primary">your weekly goals</Typography>
     {goals && goals.map(goal => (
-      <h6>{goal.goal}</h6>
+      <Typography variant="body1" color="primary">{goal.goal}</Typography>
     ))}
+    <NewGoalModal />
+    <Typography variant="h4" color="primary">your end of season goals</Typography>
+    <NewGoalModal />
+    <BottomNav/>
   </>
 )
 }
