@@ -10,6 +10,7 @@ import CoachSignupFormPage from "./components/Login_Signup/CoachSignUpForm";
 import SplashPage from "./components/SplashPage";
 import HomeContainer from "./components/HomeContainer";
 import Surveys from "./components/Surveys";
+import GoalsComponent from "./components/Goals";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/log">
             <Surveys />
+          </Route>
+          <Route path="/goals">
+            <GoalsComponent/>
           </Route>
           <Route exact path="/" >
             <SplashPage/>

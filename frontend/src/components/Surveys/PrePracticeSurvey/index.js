@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,6 @@ function PrePracticeForm(){
   const [selected, isSelected] = useState(false)
 
   useEffect(async () => {
-    console.log(sessionUser.id)
     await dispatch(getGoals(sessionUser.id))
   },[])
 
@@ -92,6 +91,17 @@ function PrePracticeForm(){
         {goals && goals.map(goal => (
           <h6>{goal.goal}</h6>
         ))}
+      </div>
+      <div className="questions">
+        <Typography variant="h5" color="primary">is there anything else that you would like me to know?</Typography>
+        <TextField 
+        id="outlined-textarea"
+        placeholder="ask me anything!"
+        multiline
+        variant="outlined"
+        color="secondary">
+
+        </TextField>
       </div>
       <Button variant="contained" color="secondary" onClick={handleComplete}>
         Mark Complete!</Button>
