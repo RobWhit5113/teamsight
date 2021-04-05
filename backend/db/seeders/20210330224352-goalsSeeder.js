@@ -5,15 +5,33 @@ module.exports = {
     return queryInterface.bulkInsert('Goals', [
       {
         userId: 1,
-        goal: 'I want to go 1:00 in 100 breastroke'
+        goal: 'I want to go 1:00 in 100 breastroke',
+        isWeekly: false,
+        isCompleted: false
       },
       {
         userId: 1,
-        goal: 'I want to train hard every day'
+        goal: 'I want to work on my turns',
+        isWeekly: true,
+        isCompleted: false
       },
       {
         userId: 1,
-        goal: 'I want to go 1:00 in 100 breastroke'
+        goal: 'I want to take 3 dolphin kicks of every wall',
+        isWeekly: true,
+        isCompleted: false
+      },
+      {
+        userId: 1,
+        goal: 'I want to work on my turns',
+        isWeekly: true,
+        isCompleted: false
+      },
+      {
+        userId: 1,
+        goal: 'I want to go 1:00 in 100 breastroke',
+        isWeekly: false,
+        isCompleted: false
       },
     ], {});
     /*

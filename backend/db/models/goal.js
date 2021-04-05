@@ -8,7 +8,15 @@ module.exports = (sequelize, DataTypes) => {
     goal: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    isWeekly: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    isCompleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
   }, {});
   Goal.associate = function(models) {
     // associations can be defined here

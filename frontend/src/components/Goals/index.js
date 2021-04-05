@@ -19,16 +19,25 @@ useEffect(async () => {
 
 const userId = sessionUser.id
 const goals = Object.values(goalsObjs)
+const wkGoals = goals.filter(goal => goal.isWeekly == true)
+const yrGoals = goals.filter(goal => goal.isWeekly == false)
 
 return (
   <>
     <Navigation />
     <Typography variant="h4" color="primary">your weekly goals</Typography>
-    {goals && goals.map(goal => (
-      <Typography variant="body1" color="primary">{goal.goal}</Typography>
+    {wkGoals && wkGoals.map(goal => (
+      
+      <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
+      
     ))}
     <NewGoalModal />
     <Typography variant="h4" color="primary">your end of season goals</Typography>
+    {yrGoals && yrGoals.map(goal => (
+      
+      <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
+      
+    ))}
     <NewGoalModal />
     <BottomNav/>
   </>
