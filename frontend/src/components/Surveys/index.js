@@ -21,7 +21,7 @@ export default function Surveys() {
     <>
       <Navigation/>
       {sessionUser && swimmer}
-      <BottomNav/>
+      {/* <BottomNav/> */}
     </> 
   )
 }

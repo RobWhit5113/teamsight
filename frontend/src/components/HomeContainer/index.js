@@ -33,7 +33,7 @@ function HomeContainer() {
     <>
       <Navigation />
       {sessionUser && sessionUser.isCoach ? coach:swimmer}
-      <BottomNav />
+      {/* <BottomNav /> */}
       
     </>
   )
