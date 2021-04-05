@@ -8,7 +8,7 @@ function NewGoalModal() {
 
   return (
     <>
-      <Button variant="contained" color="secondary"
+      <Button variant="contained" color="primary"
       onClick={() => setShowModal(true)}>create a new goal</Button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

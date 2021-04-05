@@ -34,5 +34,12 @@ router.patch('/:id', async(req,res) => {
 })
 
 //delete a goal
+router.delete('/:id', async(req,res) => {
+  const id = req.params.id
+  await Goal.destroy({where: {id}})
+  return res.json({message: "Success!"})
+})
+
+//delete a goal
 router.delete
 module.exports = router

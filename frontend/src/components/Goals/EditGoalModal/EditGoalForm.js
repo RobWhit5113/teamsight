@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { FormControlLabel, Radio, RadioGroup, Typography } from "@material-ui/core";
-import { editGoal } from "../../../store/goals";
+import { editGoal, deleteGoal, getGoals } from "../../../store/goals";
 
 function EditGoalForm({setShowModal, id}) {
   const dispatch = useDispatch()
@@ -20,8 +20,6 @@ function EditGoalForm({setShowModal, id}) {
   const handleSubmit = async(e) => {
     e.preventDefault()
     const userId = sessionUser.id
-    
-    console.log(id)
     const data = {id, userId, goal, type}
     await dispatch(editGoal(data))
     setShowModal(false)
@@ -29,6 +27,9 @@ function EditGoalForm({setShowModal, id}) {
 
   const handleDelete = async(e) => {
     e.preventDefault()
+    await dispatch(deleteGoal(id))
+    console.log(id)
+    setShowModal(false)
     
   }
   return (
