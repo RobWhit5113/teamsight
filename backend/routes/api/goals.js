@@ -21,4 +21,18 @@ router.post('/', async(req,res) => {
   const newGoal = await Goal.create(req.body)
   return res.json({newGoal})
 })
+
+//edit a goal 
+router.patch('/:id', async(req,res) => {
+  const id = req.params.id
+  let goal = await Goal.findByPk(id)
+
+  newGoal = await goal.update(req.body)
+
+
+  return res.json({newGoal})
+})
+
+//delete a goal
+router.delete
 module.exports = router

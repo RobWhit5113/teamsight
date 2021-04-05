@@ -5,6 +5,7 @@ import {useDispatch} from 'react-redux'
 import { getGoals } from "../../store/goals";
 import BottomNav from '../BottomNav';
 import Navigation from '../Navigation';
+import EditGoalModal from './EditGoalModal';
 import NewGoalModal from './NewGoalFormModal';
 
 
@@ -30,7 +31,7 @@ return (
     {wkGoals && wkGoals.map(goal => (
       <div className="goal-div">
         <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
-        <Button variant="contained" size="small" color="primary">edit goal</Button>
+        <EditGoalModal id={goal.id}/>
       </div>
       
     ))}

@@ -34,6 +34,21 @@ export const createGoal = goalInfo => async(dispatch) => {
   }
 }
 
+export const editGoal = ({id, userId, goal, type}) => async(dispatch) => {
+  const res = await fetch(`/api/goals/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      userId,
+      goal, 
+      type
+    })
+  })
+  if(res.ok){
+    await dispatch(newGoal(res.data))
+    return res
+  }
+}
+
 const goalsReducer = (state={}, action) => {
   let newState
   switch (action.type) {
