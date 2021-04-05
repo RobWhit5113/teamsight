@@ -6,31 +6,31 @@ module.exports = {
       {
         userId: 1,
         goal: 'I want to go 1:00 in 100 breastroke',
-        isWeekly: false,
+        type: 'eoy',
         isCompleted: false
       },
       {
         userId: 1,
         goal: 'I want to work on my turns',
-        isWeekly: true,
+        type: 'weekly',
         isCompleted: false
       },
       {
         userId: 1,
         goal: 'I want to take 3 dolphin kicks of every wall',
-        isWeekly: true,
+        type: 'weekly',
         isCompleted: false
       },
       {
         userId: 1,
         goal: 'I want to work on my turns',
-        isWeekly: true,
+        type: 'weekly',
         isCompleted: false
       },
       {
         userId: 1,
-        goal: 'I want to go 1:00 in 100 breastroke',
-        isWeekly: false,
+        goal: 'I want to go 55 in 100 backstroke',
+        type: 'eoy',
         isCompleted: false
       },
     ], {});

@@ -32,6 +32,7 @@ function PrePracticeForm(){
   // }
   const userId = sessionUser.id
   const goals = Object.values(goalsObjs)
+  const wkGoals = goals.filter(goal => goal.type == "weekly")
   
   const handleComplete = async(e) => {
     e.preventDefault()
@@ -88,8 +89,8 @@ function PrePracticeForm(){
       </div>
       <Typography variant="h5" color="primary">which goals are you going to focus on?</Typography>
       <div className="goals-container">
-        {goals && goals.map(goal => (
-          <h6>{goal.goal}</h6>
+        {wkGoals && wkGoals.map(goal => (
+          <h6 key={goal.id}>{goal.goal}</h6>
         ))}
       </div>
       <div className="questions">

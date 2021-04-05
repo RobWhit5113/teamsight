@@ -16,4 +16,9 @@ router.get('/:userId', async(req,res) => {
   return res.json(goals)
 })
 
+//post a new goal
+router.post('/', async(req,res) => {
+  const newGoal = await Goal.create(req.body)
+  return res.json({newGoal})
+})
 module.exports = router

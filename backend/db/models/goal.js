@@ -9,13 +9,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    isWeekly: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
+    type:{
+      allowNull:false,
+      type: DataTypes.ENUM(['weekly', 'eoy'])
     },
     isCompleted: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: false
     },
   }, {});
   Goal.associate = function(models) {

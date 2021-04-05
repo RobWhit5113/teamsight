@@ -23,6 +23,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push('/')
     setAnchorEl(null)
   }
 

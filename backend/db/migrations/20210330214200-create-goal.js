@@ -16,13 +16,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      isWeekly: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
+      type: {
+        type: Sequelize.ENUM(['weekly','eoy']),
+        allowNull: false,
+        
       },
       isCompleted: {
         type: Sequelize.BOOLEAN,
-        allowNull: false
+        allowNull: false,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,

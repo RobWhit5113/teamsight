@@ -15,20 +15,23 @@ const goalsObjs = useSelector((state) => state?.goals)
 
 useEffect(async () => {
   await dispatch(getGoals(sessionUser.id))
-}, [])
+}, [NewGoalModal])
 
 const userId = sessionUser.id
 const goals = Object.values(goalsObjs)
-const wkGoals = goals.filter(goal => goal.isWeekly == true)
-const yrGoals = goals.filter(goal => goal.isWeekly == false)
+console.log(goals)
+const wkGoals = goals.filter(goal => goal.type == "weekly")
+const yrGoals = goals.filter(goal => goal.type == "eoy")
 
 return (
   <>
     <Navigation />
     <Typography variant="h4" color="primary">your weekly goals</Typography>
     {wkGoals && wkGoals.map(goal => (
-      
-      <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
+      <div className="goal-div">
+        <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
+        <Button variant="contained" size="small" color="primary">edit goal</Button>
+      </div>
       
     ))}
     <NewGoalModal />

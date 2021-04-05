@@ -28,7 +28,7 @@ export default function Surveys() {
   return (
     <>
       <Navigation/>
-      {sessionUser.isCoach ? coach : swimmer}
+      {sessionUser?.isCoach ? coach : swimmer}
       <BottomNav/>
     </> 
   )
