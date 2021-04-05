@@ -37,9 +37,10 @@ return (
     <NewGoalModal />
     <Typography variant="h4" color="primary">my time goals</Typography>
     {yrGoals && yrGoals.map(goal => (
-      
-      <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
-      
+      <div className="time-div">
+        <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
+        <EditGoalModal id={goal.id}/>
+      </div>
     ))}
     <NewGoalModal />
     <BottomNav/>

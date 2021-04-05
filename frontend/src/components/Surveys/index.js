@@ -3,10 +3,9 @@ import {useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Button, Typography } from '@material-ui/core';
 import PrePracticeSurvey from "./PrePracticeSurvey"
-import CoachGraph from './CoachGraph';
 import Navigation from '../Navigation';
 import BottomNav from '../BottomNav';
-import AthleteCards from './AthleteCards';
+
 
 export default function Surveys() {
   const sessionUser = useSelector(state => state.session.user);
@@ -18,17 +17,10 @@ export default function Surveys() {
     </>
   )
 
-  const coach = (
-    <>
-      <CoachGraph />
-      <AthleteCards />
-    </>
-
-  )
   return (
     <>
       <Navigation/>
-      {sessionUser?.isCoach ? coach : swimmer}
+      {sessionUser && swimmer}
       <BottomNav/>
     </> 
   )

@@ -57,7 +57,6 @@ export default function AthleteCards() {
           <Typography variant="body1" component="h2">
           score: {athlete.Surveys[0].answerOne}
           </Typography>
-          <h5>Swimmer Focus</h5>
           <h5>Swimmer Question</h5>
         </CardContent>
         <CardActions>
