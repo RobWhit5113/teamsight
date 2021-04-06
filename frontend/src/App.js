@@ -12,6 +12,7 @@ import HomeContainer from "./components/HomeContainer";
 import Surveys from "./components/Surveys";
 import GoalsComponent from "./components/Goals";
 import Profile from "./components/Profile";
+import Roster from "./components/Roster";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile/>
+          </Route>
+          <Route path="/roster">
+            <Roster/>
           </Route>
           <Route exact path="/" >
             <SplashPage/>
