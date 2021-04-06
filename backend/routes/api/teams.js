@@ -17,6 +17,14 @@ router.post(
   })
 )
 
+router.get('/:teamId',
+asyncHandler(async(req,res) => {
+  const id = req.params.teamId
+  const team = await Team.findByPk(id)
+  return res.json(team)
+})
+)
+
 
 
 

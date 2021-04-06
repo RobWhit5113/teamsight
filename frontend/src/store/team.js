@@ -22,6 +22,15 @@ export const teamSignup = (teamData) => async(dispatch) => {
   }
 }
 
+export const getOneTeam = (teamId) => async(dispatch) => {
+  const res = await fetch(`/api/team/${teamId}`)
+
+  if(res.ok){
+    dispatch(setTeam(res.data))
+  }
+  return res
+}
+
 const teamReducer = (state={}, action ) => {
   let newState
   switch(action.type){
