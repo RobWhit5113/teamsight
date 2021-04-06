@@ -12,13 +12,5 @@ router.post(
   })
 )
 
-// router.get('/', asyncHandler(async(req,res) => {
-//   const surveys = await Survey.findAll({
-//     order:[Survey, "answerOne", "asc"],
-//     include: User
-//   })
-
-//   return res.json(surveys)
-// }))
 
 module.exports = router
