@@ -18,6 +18,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      question:{
+        type: Sequelize.STRING,
+      },
       isCompleted: {
         type: Sequelize.BOOLEAN,
         defaultValue: false

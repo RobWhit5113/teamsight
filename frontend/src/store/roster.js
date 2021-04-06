@@ -31,6 +31,8 @@ const rosterReducer = (state={}, action) => {
           person.Surveys[0].createdAt.toString().slice(0,10) == formatted_date
           ){
           newState[person.id] = person
+          person['score'] = person.Surveys[0].answerOne
+          person['question'] = person.Surveys[0].question
         }
       })
       return newState

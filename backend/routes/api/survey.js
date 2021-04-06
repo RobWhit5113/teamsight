@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Survey } = require('../../db/models');
+const { Survey,User } = require('../../db/models');
 
 const router = express.Router()
 
@@ -11,5 +11,14 @@ router.post(
     return res.json({survey})
   })
 )
+
+// router.get('/', asyncHandler(async(req,res) => {
+//   const surveys = await Survey.findAll({
+//     order:[Survey, "answerOne", "asc"],
+//     include: User
+//   })
+
+//   return res.json(surveys)
+// }))
 
 module.exports = router

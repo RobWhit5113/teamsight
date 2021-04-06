@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -13,9 +13,9 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import TableSortLabel from '@material-ui/core/TableSortLabel'
 import TableRow from '@material-ui/core/TableRow';
-import orderBy from 'lodash/orderBy'
-import { Tab } from '@material-ui/core';
+
 
 const useStyles = makeStyles({
   root: {
@@ -41,6 +41,41 @@ export default function AthleteCards() {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
   const roster = useSelector(state => state?.roster)
+  
+  const [orderDirection, setOrderDirection] = useState("asc")
+  const [valueToOrderBy, setValueToOrderBy] = useState("score")
+  const [page, setPage] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
+  
+  const athletes = Object.values(roster)
+
+  function descendingComparator(a,b,orderBy) {
+    if(b[orderBy] < a[orderBy]){
+      return -1
+    }
+    if(b[orderBy] > a[orderBy]){
+      return 1
+    }
+    
+    return 0
+  }
+
+  function getComparator(order, orderBy) {
+    
+    return order === "desc"
+    ? (a,b) => descendingComparator(a,b, orderBy)
+    : (a,b) => -descendingComparator(a,b, orderBy)
+  }
+
+  const sortedRowInformation = (rowArray, comparator) => {
+    const stabilizedRowArray = rowArray.map((el, index) => [el, index])
+    stabilizedRowArray.sort((a,b) => {
+      const order = comparator(a[0], b[0])
+      if(order!==0) return order
+      return a[1] - b[1]
+    })
+    return stabilizedRowArray.map((el) => el[0])
+  }
 
 
   const teamId = sessionUser.teamId
@@ -49,63 +84,71 @@ export default function AthleteCards() {
     dispatch(getRoster(teamId))
   }, [])
 
-  const athletes = Object.values(roster)
 
-  const handleSort = e => {
-
+  const handleRequestSort = (e, property) => {
+    const isAscending = (valueToOrderBy === property && orderDirection =="asc")
+    setValueToOrderBy(property)
+    setOrderDirection(isAscending ? 'desc' : 'asc')
+   
   }
   
+  const createSortHandler = (property) => e => {
+    handleRequestSort(e, property)
+  }
 
   return (
     <div className="athlete-table">
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right" >Score</TableCell>
-            <TableCell align="right">Question</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody >
-          {athletes && athletes.map(athlete => (
-            <>
-              {athlete.Surveys[0].answerOne > 3 ? <h3>good</h3>:<h3>bad</h3>}
-              <TableRow key={athlete.id}>
-                <TableCell scope="row">
-                  {athlete.firstName} {athlete.lastName}
-                </TableCell>
-                <TableCell align="right" >
-                {athlete.Surveys[0].answerOne}
-                </TableCell>
-                <TableCell align="right">question fdsafdsafdsfasdfadsfdsafdsafdsfads</TableCell>
-              </TableRow>
-            </>
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell key="lastName" >
+                <TableSortLabel
+                active={valueToOrderBy === "lastName"}
+                direction={valueToOrderBy === "lastName" ? orderDirection : "asc"}
+                onClick={createSortHandler("lastName")}
+                >
+                  Name
+                </TableSortLabel>
+              </TableCell>
+              <TableCell key="score" >
+                <TableSortLabel
+                active={valueToOrderBy === "score"}
+                direction={valueToOrderBy === "score" ? orderDirection : "asc"}
+                onClick={createSortHandler("score")}
+                >
+                  Score
+                </TableSortLabel>
+              </TableCell>
+              <TableCell key="question" >
+                <TableSortLabel
+                active={valueToOrderBy === "question"}
+                direction={valueToOrderBy === "question" ? orderDirection : "asc"}
+                onClick={createSortHandler("question")}
+                >
+                  Question
+                </TableSortLabel>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+          {sortedRowInformation(athletes, getComparator(orderDirection, valueToOrderBy))
+          .map((person) => (
+            <TableRow key={person.id}>
+              <TableCell>
+                {person.firstName} {person.lastName}
+              </TableCell>
+              <TableCell>
+                {person.Surveys[0].answerOne}
+              </TableCell>
+              <TableCell>
+                {person.Surveys[0].question}
+              </TableCell>
+            </TableRow>
           ))}
-        </TableBody>
-      </Table>
-    </div>
-        
-      
-      
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>      
   );
 }
-
-{/* {athletes && athletes.map(athlete => (
-      <Card className={classes.root} key={athlete.id}>
-        <CardContent>
-          <Typography variant="h6" color="primary" gutterBottom>
-            {athlete.firstName} {athlete.lastName}
-          </Typography>
-          <Typography variant="body1" component="h2">
-          score: {athlete.Surveys[0].answerOne}
-          </Typography>
-          <h5>Swimmer Question</h5>
-        </CardContent>
-        <CardActions>
-          <Button size="small" variant="contained" color="secondary">
-            View Profile
-            </Button>
-        </CardActions>
-      </Card>
-
-      ))} */}

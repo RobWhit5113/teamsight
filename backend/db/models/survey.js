@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    question: {
+      type: DataTypes.STRING
+    },
     isCompleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false
