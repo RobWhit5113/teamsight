@@ -28,8 +28,8 @@ module.exports = {
         {
           email: 'demo3@user.io',
           username: 'DemoBreastroker',
-          firstName: 'Sinky',
-          lastName: 'Sinkerson',
+          firstName: 'Adam',
+          lastName: 'Peaty',
           teamId: 1,
           isCoach: false,
           hashedPassword: bcrypt.hashSync('password')
@@ -37,8 +37,8 @@ module.exports = {
         {
           email: 'demo4@user.io',
           username: 'DemoBackstroker',
-          firstName: 'Sinky',
-          lastName: 'Sinkerson',
+          firstName: 'Ryan',
+          lastName: 'Murphy',
           teamId: 1,
           isCoach: false,
           hashedPassword: bcrypt.hashSync('password')

@@ -1,30 +1,36 @@
 import { Typography } from '@material-ui/core';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import React, {useEffect} from 'react';
+import { getGoals } from "../../../store/goals";
 
 
 export default function MyWeeklySummary(){
+  const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
+  const goalsObjs = useSelector((state) => state?.goals)
   
+  useEffect(async () => {
+    await dispatch(getGoals(sessionUser.id))
+  }, [])
+
+  const goals = Object.values(goalsObjs)
+const wkGoals = goals.filter(goal => goal.type == "weekly")
 
   const athleteSummary = (
     <>
-      <Typography variant="body1">Here are a few things that you have done this week!</Typography>
-      <div className="barContainer">
+      <Typography variant="h5" color="primary">Your current Check-In Streak is...</Typography>
         <div>
           <Typography variant="body1" color="primary">Streak</Typography>
         </div>
+      <Typography variant="h5" color="primary">Your focus goals for the week are...</Typography>
         <div>
-          <Typography variant="body1" color="primary">Goals</Typography>
-        </div>
-        <div>
-          <Typography variant="body1" color="primary">Effort</Typography>
-        </div>
-        <div>
-          <Typography variant="body1" color="primary">Yards</Typography>
-        </div>
+          {wkGoals && wkGoals.map(goal=> (
+            <Typography variant="body1" color="primary" key={goal.id}>
+              {goal.goal}
+              </Typography>
 
-      </div>
+          ))}
+        </div>
     </>
   )
   return (

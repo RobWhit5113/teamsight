@@ -11,12 +11,13 @@ function Profile(){
   const team = Object.values(teamObj)
   const dispatch = useDispatch()
 
-  console.log(team)
-  useEffect(() => {
-    dispatch(getOneTeam(sessionUser.teamId))
-  },[])
+  
+  useEffect(async() => {
+    await dispatch(getOneTeam(sessionUser.teamId))
+  },[dispatch])
 
   return (
+    team && 
     <>
       <Navigation/>
       <div>

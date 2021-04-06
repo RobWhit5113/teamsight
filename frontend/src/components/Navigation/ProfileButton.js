@@ -3,6 +3,7 @@ import React, { useState} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import * as sessionActions from '../../store/session';
+import { getOneTeam } from "../../store/team";
 
 
 function ProfileButton({ user }) {
@@ -16,8 +17,9 @@ function ProfileButton({ user }) {
     setAnchorEl(null)
   }
   
-  const handleProfile = (e) => {
+  const handleProfile = async (e) => {
     e.preventDefault()
+    await dispatch(getOneTeam(sessionUser.teamId))
     history.push('/profile')
     setAnchorEl(null)
   }

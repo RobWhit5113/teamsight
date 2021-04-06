@@ -6,7 +6,6 @@ import QuestionModal from '../Login_Signup/QuestionModal'
 import './SplashPage.css'
 
 function SplashPage(){
-  const sessionUser = useSelector(state => state.session.user);
 
 
 return (

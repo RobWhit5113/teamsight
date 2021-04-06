@@ -43,7 +43,6 @@ return (
       </div>
     ))}
     <NewGoalModal />
-    <BottomNav/>
   </>
 )
 }

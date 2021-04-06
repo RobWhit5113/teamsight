@@ -24,6 +24,14 @@ module.exports = {
         question: "what are good shoulder exercises for shoulder pain?",
         isCompleted: true
       },
+      {
+        userId: 4,
+        answerOne: 3,
+        question: "what are good shoulder exercises for shoulder pain?",
+        isCompleted: true,
+        // createdAt: new Date('2021-04-03T16:51:15.625Z')
+
+      },
       
     ], {});
     /*
