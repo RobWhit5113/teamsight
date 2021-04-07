@@ -34,7 +34,7 @@ module.exports = {
       },
         {
         userId: 1,
-        goal: 'I want to go 55 in 100 backstroke',
+        goal: 'I want to go 2:00 in the 200 freestyle',
         type: 'eoy',
         isCompleted: false,
       },

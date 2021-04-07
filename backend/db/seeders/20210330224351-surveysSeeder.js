@@ -27,7 +27,69 @@ module.exports = {
       {
         userId: 5,
         answerOne: 3,
-        question: "I am really tired?",
+        question: "I am really tired!",
+        isCompleted: true,
+
+      },
+      {
+        userId: 6,
+        answerOne: 4,
+        isCompleted: true,
+
+      },
+      {
+        userId: 7,
+        answerOne: 1,
+        isCompleted: true,
+
+      },
+      {
+        userId: 8,
+        answerOne: 5,
+        isCompleted: true,
+
+      },
+      {
+        userId: 9,
+        answerOne: 2,
+        question: "My dog died last night",
+        isCompleted: true,
+
+      },
+      {
+        userId: 10,
+        answerOne: 3,
+        isCompleted: true,
+
+      },
+      {
+        userId: 11,
+        answerOne: 4,
+        isCompleted: true,
+
+      },
+      {
+        userId: 12,
+        answerOne: 5,
+        question: "What should I be eating before practice?",
+        isCompleted: true,
+
+      },
+      {
+        userId: 13,
+        answerOne: 2,
+        isCompleted: true,
+
+      },
+      {
+        userId: 14,
+        answerOne: 4,
+        isCompleted: true,
+
+      },
+      {
+        userId: 15,
+        answerOne: 3,
         isCompleted: true,
 
       },

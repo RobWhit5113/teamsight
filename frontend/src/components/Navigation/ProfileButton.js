@@ -29,55 +29,17 @@ function ProfileButton({ user }) {
     history.push('/')
     setAnchorEl(null)
   }
-    const handleHome = (e) => {
-    e.preventDefault()
-    history.push('/home')
-    setAnchorEl(null)
-  }
-    const handleRoster = (e) => {
-    e.preventDefault()
-    history.push('/roster')
-    setAnchorEl(null)
-  }
-  const handleCheckIn = (e) => {
-    e.preventDefault()
-    history.push('/log')
-    setAnchorEl(null)
-  }
-  const handleGoals = (e) => {
-    e.preventDefault()
-    history.push('/goals')
-    setAnchorEl(null)
-  }
-
   const openMenu = (e) => {
     setAnchorEl(e.currentTarget)
   }
 
-  const coachMenu = (
+  const menu = (
     <Menu
         id="simple-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}> 
-        <MenuItem onClick={handleHome}>Home</MenuItem>
-        <MenuItem onClick={handleRoster}>Roster</MenuItem>
-        <MenuItem onClick={handleProfile}>Profile</MenuItem>
-        <MenuItem onClick={handleLogout}>Logout</MenuItem>
-    </Menu>
-  )
-
-  const swimmerMenu = (
-    <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}> 
-        <MenuItem onClick={handleHome}>Home</MenuItem>
-        <MenuItem onClick={handleCheckIn}>Check-In</MenuItem>
-        <MenuItem onClick={handleGoals}>Goals</MenuItem>
         <MenuItem onClick={handleProfile}>Profile</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </Menu>
@@ -91,7 +53,7 @@ function ProfileButton({ user }) {
           <path fillRule="evenodd" clipRule="evenodd" d="M12 4C10.3431 4 9 5.34315 9 7C9 8.65685 10.3431 10 12 10C13.6569 10 15 8.65685 15 7C15 5.34315 13.6569 4 12 4ZM7 7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7C17 9.76142 14.7614 12 12 12C9.23858 12 7 9.76142 7 7Z" fill="#12131A"/>
         </svg>
       </Button>
-      {sessionUser && sessionUser.isCoach ? coachMenu:swimmerMenu}
+      {menu}
     </>
   );
 }

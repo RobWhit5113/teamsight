@@ -79,6 +79,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     User.hasMany(models.Goal, {foreignKey: 'userId'})
     User.hasMany(models.Survey, {foreignKey: 'userId'})
+    User.hasMany(models.Post, {foreignKey: 'coachId'})
     User.belongsTo(models.Team, {foreignKey: 'teamId'})
   };
   User.prototype.toSafeObject = function () {
