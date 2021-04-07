@@ -27,10 +27,11 @@ function TeamSignUpForm() {
     await dispatch(teamSignup(teamData))
     history.push('/coach_signup')
   }
+  
   const updateFile = (e) => {
-  const file = e.target.files[0];
-  if (file) setTeamLogo(file);
-};
+    const file = e.target.files[0];
+    if (file) setTeamLogo(file);
+  };
 
   return(
     <>
@@ -48,9 +49,8 @@ function TeamSignUpForm() {
         {/* <TextField id="standard-basic" label="Team Logo" value={teamLogo}
           onChange={e => setTeamLogo(e.target.value)}
         /> */}
-        <Button variant="outlined" color="primary" onClick={updateFile}>
-          Upload Team Logo
-        </Button>
+        <input type="file" onChange={updateFile}/>
+        
         <Button variant="outlined" color="primary" onClick={handleSubmit}>
           Next
         </Button>
