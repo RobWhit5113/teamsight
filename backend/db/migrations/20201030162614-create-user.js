@@ -35,6 +35,10 @@ module.exports = {
         allowNull: false,
         deafaultValue: false
       },
+      streak:{
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false

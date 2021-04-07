@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Goals', [
@@ -31,7 +30,13 @@ module.exports = {
         userId: 1,
         goal: 'I want to go 55 in 100 backstroke',
         type: 'eoy',
-        isCompleted: false
+        isCompleted: false,
+      },
+        {
+        userId: 1,
+        goal: 'I want to go 55 in 100 backstroke',
+        type: 'eoy',
+        isCompleted: false,
       },
     ], {});
     /*

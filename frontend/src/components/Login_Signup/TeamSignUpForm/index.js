@@ -20,12 +20,18 @@ function TeamSignUpForm() {
   const [location, setLocation] = useState("")
   const [errors, setErrors] = useState([]);
 
+  
   const handleSubmit = async(e) => {
     e.preventDefault()
     const teamData = {teamName, teamLogo, location}
     await dispatch(teamSignup(teamData))
     history.push('/coach_signup')
   }
+  
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setTeamLogo(file);
+  };
 
   return(
     <>
@@ -37,12 +43,14 @@ function TeamSignUpForm() {
         <TextField id="standard-basic" label="Team Name" value={teamName}
           onChange={e => setTeamName(e.target.value)}
         />
-        <TextField id="standard-basic" label="Team Logo" value={teamLogo}
-          onChange={e => setTeamLogo(e.target.value)}
-        />
         <TextField id="standard-basic" label="Location" value={location}
           onChange={e => setLocation(e.target.value)}
         />
+        {/* <TextField id="standard-basic" label="Team Logo" value={teamLogo}
+          onChange={e => setTeamLogo(e.target.value)}
+        /> */}
+        <input type="file" onChange={updateFile}/>
+        
         <Button variant="outlined" color="primary" onClick={handleSubmit}>
           Next
         </Button>
