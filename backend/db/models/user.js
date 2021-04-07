@@ -48,6 +48,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         allowNull: false
       },
+      streak:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
         allowNull: false,
