@@ -37,7 +37,6 @@ module.exports = {
       },
       streak:{
         type: Sequelize.INTEGER,
-        allowNull: false,
         defaultValue: 0
       },
       hashedPassword: {
