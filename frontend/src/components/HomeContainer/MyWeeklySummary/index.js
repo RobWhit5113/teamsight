@@ -20,7 +20,7 @@ const wkGoals = goals.filter(goal => goal.type == "weekly")
     <>
       <Typography variant="h5" color="primary">Your current Check-In Streak is...</Typography>
         <div>
-          <Typography variant="body1" color="primary">Streak</Typography>
+          <Typography variant="body1" color="primary">{sessionUser.streak}</Typography>
         </div>
       <Typography variant="h5" color="primary">Your focus goals for the week are...</Typography>
         <div>
@@ -36,7 +36,7 @@ const wkGoals = goals.filter(goal => goal.type == "weekly")
   return (
     <>
       <Typography variant="h3" color="primary">My Weekly Summary</Typography>
-      {sessionUser.isCoach ?  <h1>coach</h1> : athleteSummary}
+      {athleteSummary}
     </>  
   )
 

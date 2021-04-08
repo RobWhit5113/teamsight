@@ -1,6 +1,8 @@
 import { Button, Typography } from '@material-ui/core';
 import React from 'react';
+import * as sessionActions from '../../store/session'
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import LoginFormModal from '../Login_Signup/LoginFormModal';
 import QuestionModal from '../Login_Signup/QuestionModal'
 import './SplashPage.css'
@@ -8,6 +10,7 @@ import './SplashPage.css'
 function SplashPage(){
 
 const dispatch = useDispatch()
+const history = useHistory()
 
   const handleUser = async(e) => {
     e.preventDefault();
@@ -17,7 +20,7 @@ const dispatch = useDispatch()
     history.push('/home')
   };
 
-    const handleUser = async(e) => {
+    const handleCoach = async(e) => {
     e.preventDefault();
     const credential = "coachtrent@swim.io"
     const password = "password"

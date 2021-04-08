@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import { Typography } from '@material-ui/core';
 
 function Navigation(){
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory()
 
       const handleHome = (e) => {
     e.preventDefault()

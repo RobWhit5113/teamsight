@@ -13,6 +13,7 @@ module.exports = {
           firstName: 'Swimmy',
           lastName: 'Swimmerson',
           teamId: 1,
+          streak: 5,
           isCoach: false,
           hashedPassword: bcrypt.hashSync('password')
         },
