@@ -1,0 +1,23 @@
+.goal-div{
+  display:flex;
+  justify-content: space-between;
+  width: 600px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  background-color: #F2F2F2;
+}
+
+.entire-goals-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.time-div{
+  display:flex;
+  justify-content: space-between;
+  width: 600px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  background-color: #F2F2F2;
+}

@@ -7,6 +7,7 @@ import BottomNav from '../BottomNav';
 import Navigation from '../Navigation';
 import EditGoalModal from './EditGoalModal';
 import NewGoalModal from './NewGoalFormModal';
+import './Goals.css'
 
 
 function GoalsComponent (){
@@ -26,23 +27,32 @@ const yrGoals = goals.filter(goal => goal.type == "eoy")
 return (
   <>
     <Navigation />
-    <Typography variant="h4" color="primary">my weekly goals</Typography>
-    {wkGoals && wkGoals.map(goal => (
-      <div className="goal-div">
-        <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
-        <EditGoalModal id={goal.id}/>
+    <div className="entire-goals-container">
+      <div className="weekly-goals-container">
+        <Typography variant="h4" color="primary">my weekly goals</Typography>
+        {wkGoals && wkGoals.map(goal => (
+          <div className="goal-div">
+            <div className="goal-body">
+              <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
+            </div>
+            <div className="goal-edit">
+              <EditGoalModal id={goal.id}/>
+            </div>
+          </div>
+      ))}
+      <NewGoalModal />
       </div>
-      
-    ))}
-    <NewGoalModal />
-    <Typography variant="h4" color="primary">my time goals</Typography>
-    {yrGoals && yrGoals.map(goal => (
-      <div className="time-div">
-        <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
-        <EditGoalModal id={goal.id}/>
+      <div className="time-goals-container">
+        <Typography variant="h4" color="primary">my time goals</Typography>
+        {yrGoals && yrGoals.map(goal => (
+          <div className="time-div">
+            <Typography variant="body1" key={goal.id} color="primary">{goal.goal}</Typography>
+            <EditGoalModal id={goal.id}/>
+          </div>
+        ))}
+      <NewGoalModal />
       </div>
-    ))}
-    <NewGoalModal />
+    </div>
   </>
 )
 }

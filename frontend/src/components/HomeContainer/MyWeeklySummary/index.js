@@ -19,6 +19,7 @@ export default function MyWeeklySummary(){
   const wkGoals = goals.filter(goal => goal.type == "weekly")
 
   const athleteSummary = (
+    sessionUser && 
     <>
       <Typography variant="h6" color="primary">Your current Check-In Streak is...</Typography>
         <div className="summary-streak">

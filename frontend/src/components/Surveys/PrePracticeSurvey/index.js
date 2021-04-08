@@ -16,10 +16,11 @@ function PrePracticeForm(){
   const sessionUser = useSelector((state) => state.session.user);
   const goalsObjs = useSelector((state) => state?.goals)
 
-  const [answerOne, setAnswerOne] = useState("")
+  const [answerString, setAnswerString] = useState("")
   const [goal, setGoal] = useState("")
   const [isCompleted, setIsCompleted] = useState(false)
-  const [selected, isSelected] = useState(false)
+  // const [isSelected, setIsSelected] = useState(0)
+  
 
 
   useEffect(async () => {
@@ -38,6 +39,18 @@ function PrePracticeForm(){
   const handleComplete = async(e) => {
     e.preventDefault()
     await setIsCompleted(true)
+    let answerOne
+    if(answerString == "very bad"){
+      answerOne = 1
+    } else if (answerString == "bad") {
+      answerOne = 2 
+    } else if (answerString == "alright") {
+      answerOne = 3 
+    }else if (answerString == "good") {
+      answerOne = 4 
+    }else if (answerString == "great") {
+      answerOne = 5 
+    }
     const data = {userId, answerOne, isCompleted}
     await dispatch(completeSurvey(data))
   }
@@ -46,6 +59,14 @@ function PrePracticeForm(){
     e.preventDefault()
     setGoal(e.target.value)
   }
+
+  // const handleSelected = e => {
+  //   e.preventDefault()
+  //   setIsSelected(e.target.id)
+  //   setAnswerOne(e.target.id)
+  // }
+
+  
 
   return(
     <>
@@ -62,11 +83,11 @@ function PrePracticeForm(){
         </div>
         <div className="card-wrapper">
           <div className="smiley-image" id={3} onClick={e => setAnswerOne(e.target.id)}>
+          <div className="smiley-image" id={4} onClick={e => setAnswerOne(e.target.id)}>
             <h3>Alright</h3>
           </div>
         </div>
         <div className="card-wrapper">
-          <div className="smiley-image" id={4} onClick={e => setAnswerOne(e.target.id)}>
            <h3>Good</h3>
           </div>
         </div>
@@ -81,30 +102,30 @@ function PrePracticeForm(){
             <Typography variant="h5" color="primary">how are you feeling today?</Typography>
           </div>
         <div className="mood-container">
-          {/* <RadioGroup name="mood" value={answerOne} onChange={e => setAnswerOne(e.target.value)}>
+          <RadioGroup name="mood" value={answerString} onChange={e => setAnswerString(e.target.value)}>
             
-              <FormControlLabel value={1} control={<Radio/>} label={"very bad"}/>
-              <FormControlLabel value={2} control={<Radio/>} label={"bad"} />
-              <FormControlLabel value={3} control={<Radio/>} label={"alright"}/>
-              <FormControlLabel value={4} control={<Radio/>} label={"good"} />
-              <FormControlLabel value={5} control={<Radio/>} label={"great"} />
+              <FormControlLabel value={"very bad"} control={<Radio/>} label={"very bad"}/>
+              <FormControlLabel value={"bad"} control={<Radio/>} label={"bad"} />
+              <FormControlLabel value={"alright"} control={<Radio/>} label={"alright"}/>
+              <FormControlLabel value={"good"} control={<Radio/>} label={"good"} />
+              <FormControlLabel value={"great"} control={<Radio/>} label={"great"} />
             
-          </RadioGroup> */}
-          <div className="mood" id={1} onClick={e => setAnswerOne(e.target.id)}>
+          </RadioGroup>
+          {/* <div className={isSelected ? "mood-selected":"mood"} id={1} onClick={handleSelected}>
             <Typography variant="body1" color="primary">really bad</Typography>
           </div>
-          <div className="mood" id={2} onClick={e => setAnswerOne(e.target.id)}>
+          <div className={isSelected ? "mood-selected":"mood"} id={2} onClick={e => setAnswerOne(e.target.id)}>
             <Typography variant="body1" color="primary">bad</Typography>
           </div>
-          <div className="mood" id={3} onClick={e => setAnswerOne(e.target.id)}>
+          <div className={isSelected ? "mood-selected":"mood"} id={3} onClick={e => setAnswerOne(e.target.id)}>
             <Typography variant="body1" color="primary">alright</Typography>
           </div>
-          <div className="mood" id={4} onClick={e => setAnswerOne(e.target.id)}>
+          <div className={isSelected ? "mood-selected":"mood"} id={4} onClick={e => setAnswerOne(e.target.id)}>
             <Typography variant="body1" color="primary">good</Typography>
           </div>
-          <div className="mood" id={5} onClick={e => setAnswerOne(e.target.id)}>
+          <div className={isSelected ? "mood-selected":"mood"} id={5} onClick={e => setAnswerOne(e.target.id)}>
             <Typography variant="body1" color="primary">great</Typography>
-          </div>
+          </div> */}
         </div>
         <div className="goals-container">
           <Typography variant="h5" color="primary">pick a goal to focus on today</Typography>
