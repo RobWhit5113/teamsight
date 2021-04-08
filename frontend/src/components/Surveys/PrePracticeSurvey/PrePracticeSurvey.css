@@ -1,8 +1,31 @@
 .mood{
   cursor: pointer;
+  margin-right: 30px;
 }
 
+.mood:hover{
+  border-bottom: solid black 1px;
+}
+
+.mood-title{
+  margin: 10px 5px;
+}
 .mood-container{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  margin: 10px 5px 20px 5px;
+}
+
+.goals-container{
+  margin: 10px 5px 20px 5px;
+}
+
+.questions{
+  margin: 10px 5px 20px 5px;
+}
+.text-area-survey{
+  width: 700px
+}
+.survey-button{
+  margin: 10px 5px 20px 5px;
 }

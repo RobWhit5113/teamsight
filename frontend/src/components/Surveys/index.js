@@ -12,7 +12,6 @@ export default function Surveys() {
 
   const swimmer = (
     <>
-      <Typography variant="h5" color="primary">how are you feeling today?</Typography>
       <PrePracticeSurvey />
     </>
   )
