@@ -18,6 +18,10 @@ module.exports = {
         allowNull: false,
         references: {model:"Teams"}
       },
+      title: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       post: {
         type: Sequelize.STRING,
         allowNull: false,

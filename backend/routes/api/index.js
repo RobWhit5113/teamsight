@@ -5,6 +5,7 @@ const teamsRouter = require('./teams.js')
 const rosterRouter = require('./roster.js')
 const surveyRouter = require('./survey.js')
 const goalsRouter = require('./goals')
+const postsRouter = require('./posts.js')
 
 
 // GET /api/set-token-cookie
@@ -56,6 +57,7 @@ router.use('/survey', surveyRouter)
 
 router.use('/goals', goalsRouter)
 
+router.use('/posts', postsRouter)
 
 
 

@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       references: {model:"Teams"},
       allowNull: false
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull:false
+    },
     post: {
       type: DataTypes.STRING,
       allowNull: false

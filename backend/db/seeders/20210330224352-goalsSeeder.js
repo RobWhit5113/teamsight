@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         userId: 1,
-        goal: 'I want to work on my turns',
+        goal: 'I want to work on alternate breathing',
         type: 'weekly',
         isCompleted: false
       },
