@@ -2,6 +2,7 @@ import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, makeStyl
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../../store/posts';
+import "./CoachesCorner.css"
 
 
   const useStyles = makeStyles((theme) => ({
@@ -30,23 +31,26 @@ import { getPosts } from '../../../store/posts';
 
   return (
     <>
-        <Typography variant="h3" color="primary">Coach's Corner</Typography>
-      {posts && posts.map(post => (
-      <Card className={classes.root} key={post.id}>
-        <CardHeader
-        title={post.title} />
-        <CardMedia
-        className={classes.media} 
-        image={post.postMedia}/>
-        <CardContent>
-          <Typography variant="body1">{post.post}</Typography>
-        </CardContent>
-        <CardActions>
-          <Button variant="contained" color="secondary">Click to see more</Button>
-        </CardActions>
-      </Card>
-      ))}
-      
+    <div className="coaches-corner-container">
+      <Typography variant="h3" color="primary">Coach's Corner</Typography>
+        <div className="allcards">
+          {posts && posts.map(post => (
+          <Card className={classes.root} key={post.id}>
+            <CardHeader
+            title={post.title} />
+            <CardMedia
+            className={classes.media} 
+            image={post.postMedia}/>
+            <CardContent>
+              <Typography variant="body1">{post.post}</Typography>
+            </CardContent>
+            <CardActions>
+              <Button variant="contained" color="secondary">Click to see more</Button>
+            </CardActions>
+          </Card>
+          ))}
+        </div>
+      </div>
     </>
   )
 }

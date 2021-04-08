@@ -43,12 +43,12 @@ function Navigation(){
 
     const athleteNav = (
     <>
-      <div className="roster-nav" onClick={handleCheckIn}>
+      <div className="checkin-nav" onClick={handleCheckIn}>
         <Typography variant="body1" color="primary">
           Check-In
         </Typography>
       </div>
-      <div className="posts-nav" onClick={handleGoals}>
+      <div className="goals-nav" onClick={handleGoals}>
         <Typography variant="body1" color="primary">
           Goals
         </Typography>
@@ -58,6 +58,7 @@ function Navigation(){
 
   return (
     <div className="top-nav">
+      <div className="nav-bar-buttons">
       <div className="home-nav" onClick={handleHome}>
         <Typography variant="body1" color="primary">
           Home
@@ -65,6 +66,7 @@ function Navigation(){
       </div>
       {sessionUser && sessionUser.isCoach ? coachNav : athleteNav}
       <ProfileButton user={sessionUser} />
+      </div>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {Redirect} from 'react-router-dom'
-import BottomNav from '../BottomNav';
 import Navigation from '../Navigation';
 import CoachesCorner from './CoachesCorner';
 import MyWeeklySummary from './MyWeeklySummary';
 import CoachGraph from './CoachGraph'
 import AthleteCards from './AthleteCards'
+import './HomeContainer.css'
 
 
 
@@ -31,9 +31,10 @@ function HomeContainer() {
   
   return(
     <>
+      <div className="entire-home-container">
       <Navigation />
       {sessionUser && sessionUser.isCoach ? coach:swimmer}
-      {/* <BottomNav /> */}
+      </div>
       
     </>
   )

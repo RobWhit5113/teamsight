@@ -3,3 +3,33 @@
   background-color: #F2F2F2;
   justify-content: flex-end;
 }
+
+.nav-bar-buttons{
+  display: flex;
+  align-items: center;
+}
+
+.home-nav,
+.checkin-nav,
+.goals-nav,
+.roster-nav,
+.posts-nav{
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.home-nav:hover,
+.checkin-nav:hover,
+.goals-nav:hover,
+.roster-nav:hover,
+.posts-nav:hover{
+  border-bottom: 1px solid black;
+}
+
+/* .home-nav.,
+.checkin-nav:hover,
+.goals-nav:hover,
+.roster-nav:hover,
+.posts-nav:hover{
+  border-bottom: 1px solid black;
+} */

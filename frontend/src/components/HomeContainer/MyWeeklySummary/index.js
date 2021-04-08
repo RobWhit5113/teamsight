@@ -2,6 +2,7 @@ import { Typography } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import React, {useEffect} from 'react';
 import { getGoals } from "../../../store/goals";
+import "./MyWeeklySummary.css"
 
 
 
@@ -20,24 +21,25 @@ export default function MyWeeklySummary(){
   const athleteSummary = (
     <>
       <Typography variant="h6" color="primary">Your current Check-In Streak is...</Typography>
-        <div>
+        <div className="summary-streak">
           <Typography variant="h6" color="secondary">{sessionUser?.streak} Keep it up!</Typography>
         </div>
       <Typography variant="h6" color="primary">Your focus goals for the week are...</Typography>
-        <div>
+        <div className="weekly-goals-summary">
           {wkGoals && wkGoals.map(goal=> (
             <Typography variant="h6" color="secondary" key={goal.id}>
               {goal.goal}
               </Typography>
-
           ))}
         </div>
     </>
   )
   return (
     <>
-      <Typography variant="h3" color="primary">My Weekly Summary</Typography>
-      {athleteSummary}
+      <div className="weekly-summary-container">
+        <Typography variant="h3" color="primary">My Weekly Summary</Typography>
+        {athleteSummary}
+      </div>
     </>  
   )
 
