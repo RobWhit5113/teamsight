@@ -35,7 +35,7 @@ athletes.forEach(athlete => {
       <Typography variant="h4" color="primary">Here's How Your Team Is Doing Today</Typography>
       <div className="swimmer-score">
         <Typography variant="h5" color="secondary">
-          {sum/count}/5 
+          {(sum/count).toFixed(1)}/5 
         </Typography>
         <Typography variant="h6" color="primary">
           rating on the wellness survey!

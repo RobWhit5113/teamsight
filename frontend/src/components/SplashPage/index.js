@@ -32,10 +32,13 @@ return (
   <>
     <div className="container">
       <Typography variant="h2" color="primary">Welcome to Teamsight</Typography>
-      <div className="buttons"> 
+      <div className="splash-buttons"> 
         <LoginFormModal> Login! </LoginFormModal>
         <QuestionModal> Sign Up!</QuestionModal>
-        <Typography variant="body1" color="primary">Or try out one of the demo logins</Typography>
+      </div>
+        <Typography variant="body1" color="primary" className="splash-demo">
+          Or try out one of the demo logins</Typography>
+      <div className="demo-buttons">
         <Button variant="contained" color="secondary" onClick={handleUser}>Demo Athlete</Button>
         <Button variant="contained" color="primary" onClick={handleCoach}>Demo Coach</Button>
       </div>

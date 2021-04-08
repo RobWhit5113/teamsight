@@ -19,14 +19,14 @@ export default function MyWeeklySummary(){
 
   const athleteSummary = (
     <>
-      <Typography variant="h5" color="primary">Your current Check-In Streak is...</Typography>
+      <Typography variant="h6" color="primary">Your current Check-In Streak is...</Typography>
         <div>
-          <Typography variant="body1" color="primary">{sessionUser?.streak}</Typography>
+          <Typography variant="h6" color="secondary">{sessionUser?.streak} Keep it up!</Typography>
         </div>
-      <Typography variant="h5" color="primary">Your focus goals for the week are...</Typography>
+      <Typography variant="h6" color="primary">Your focus goals for the week are...</Typography>
         <div>
           {wkGoals && wkGoals.map(goal=> (
-            <Typography variant="body1" color="primary" key={goal.id}>
+            <Typography variant="h6" color="secondary" key={goal.id}>
               {goal.goal}
               </Typography>
 
