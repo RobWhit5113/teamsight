@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import LoginFormModal from '../Login_Signup/LoginFormModal';
 import QuestionModal from '../Login_Signup/QuestionModal'
+import Carousel from 'react-material-ui-carousel'
 import './SplashPage.css'
 
 function SplashPage(){
@@ -42,6 +43,38 @@ return (
         <Button variant="contained" color="secondary" onClick={handleUser}>Demo Athlete</Button>
         <Button variant="contained" color="primary" onClick={handleCoach}>Demo Coach</Button>
       </div>
+    </div>
+    <div className="carousel-splash">
+      <Carousel
+      autoplay={true}
+      >
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/phelps-bowman.jpeg" /> 
+        </div>
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/franklin-coach.jpeg" />  
+        </div>
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/ledecky-coach.jpeg" /> 
+        </div>
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/lochte.jpeg" />
+        </div>
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/phelps.jpeg" />
+        </div>
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/piersol-reese.jpeg" />
+        </div>
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/reese-swimmer.jpeg" />
+        </div>
+        <div className="splash-image">
+          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/troy-dressel.jpeg" />
+        </div>
+       
+       
+      </Carousel>
     </div>
   </>
 )

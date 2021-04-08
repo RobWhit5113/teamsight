@@ -20,5 +20,14 @@
 
 .splash-demo{
   text-align: center;
-  
+}
+
+.carousel-splash{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.splash-image{
+  align-content: center;
 }

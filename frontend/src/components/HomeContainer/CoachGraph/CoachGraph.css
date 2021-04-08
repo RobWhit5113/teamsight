@@ -1,0 +1,16 @@
+.swimmer-score{
+  display: flex;
+}
+
+.score-container{
+  margin-left: 5px;
+}
+
+.score-text{
+  margin: 10px 0px
+}
+
+.score-calculation{
+  margin: 10px
+}
+

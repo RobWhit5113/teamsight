@@ -1,10 +1,10 @@
 import { Typography } from '@material-ui/core';
 import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
-import {useHistory} from 'react-router-dom'
 import { getRoster } from '../../../store/roster';
 import {useDispatch} from 'react-redux'
-import { getAllSurveys } from '../../../store/survey';
+import './CoachGraph.css'
+
 
 
 
@@ -32,14 +32,20 @@ athletes.forEach(athlete => {
 
   return (
     <>
-      <Typography variant="h4" color="primary">Here's How Your Team Is Doing Today</Typography>
-      <div className="swimmer-score">
-        <Typography variant="h5" color="secondary">
-          {(sum/count).toFixed(1)}/5 
-        </Typography>
-        <Typography variant="h6" color="primary">
-          rating on the wellness survey!
-        </Typography>
+    <div className="score-container">
+        <Typography variant="h4" color="primary">Here's How Your Team Is Doing Today</Typography>
+        <div className="swimmer-score">
+          <div className="score-calculation">
+            <Typography variant="h5" color="secondary">
+              {(sum/count).toFixed(1)}/5 
+            </Typography>
+          </div>
+          <div className="score-text">
+            <Typography variant="h6" color="primary">
+              rating on the wellness survey!
+            </Typography>
+          </div>
+        </div>
       </div>
     </>
   )
