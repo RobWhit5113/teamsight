@@ -1,0 +1,22 @@
+.teamsignup-title{
+  text-align: center;
+}
+
+.teamsignup-form{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.logo-upload{
+  margin-top: 20px;
+  display: flex;
+  align-content: center;
+  
+}
+
+.team-signup-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}

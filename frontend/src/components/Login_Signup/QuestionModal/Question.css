@@ -1,0 +1,9 @@
+.question-component{
+  margin: 10px
+}
+
+.question-buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

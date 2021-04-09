@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {useHistory} from "react-router-dom"
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
+import "./Question.css"
 
 
 function QuestionComponent({setShowModal}) {
@@ -21,13 +22,17 @@ function QuestionComponent({setShowModal}) {
 
   return (
     <>
-      <Typography variant="h2" color="primary">Are you a Coach?</Typography>
-      <Button variant="outlined" color="primary" onClick={ifCoach}>
-          Yes
-        </Button>
-      <Button variant="outlined" color="primary" onClick={ifUser}>
-          No
-        </Button>
+      <div className="question-component">
+        <Typography variant="h2" color="primary">Are you a Coach?</Typography>
+        <div className="question-buttons">
+          <Button variant="outlined" color="primary" onClick={ifCoach}>
+              Yes
+            </Button>
+          <Button variant="outlined" color="primary" onClick={ifUser}>
+              No
+            </Button>
+          </div>
+      </div>
     </>
   );
 }

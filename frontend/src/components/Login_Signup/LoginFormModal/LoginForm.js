@@ -28,21 +28,23 @@ function LoginForm() {
 
   return (
     <>
-      <Typography variant="h2" color="primary">Log In</Typography>
-      <form>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-          <TextField id="standard-basic" label="Username" value={credential}
-        onChange={(e) => setCredential(e.target.value)} required/>
-          <TextField id="standard-basic" label="Password" value={password}
-        onChange={(e) => setPassword(e.target.value)} required/>
-        <Button variant="outlined" color="primary" onClick={handleSubmit}>
-          Log In
-        </Button>
-      </form>
+      <div className="login-form-container">
+        <Typography variant="h2" color="primary">Log In</Typography>
+        <form>
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+            <TextField id="standard-basic" label="Username" value={credential}
+          onChange={(e) => setCredential(e.target.value)} required/>
+            <TextField id="standard-basic" label="Password" value={password}
+          onChange={(e) => setPassword(e.target.value)} required/>
+          <Button variant="outlined" color="primary" onClick={handleSubmit}>
+            Log In
+          </Button>
+        </form>
+      </div>
     </>
   );
 }

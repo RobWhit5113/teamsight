@@ -26,18 +26,20 @@ function NewGoalForm({setShowModal}) {
 
   return (
     <>
-      <Typography variant="h4" color="primary">what's your new goal?</Typography>
-      <form>
-        <TextField id="standard-basic" label="type goal here" value={goal} multiline
-        onChange={(e) => setGoal(e.target.value)} required/>
-        <RadioGroup aria-label="type of goal" value={type} onChange={handleRadio}>
-          <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
-          <FormControlLabel value={"eoy"} control={<Radio />} label="end of year" />
-        </RadioGroup>
-        <Button variant="contained" color="secondary" onClick={handleSubmit}>
-          create!
-        </Button>
-      </form>
+    <div className="new-goal-form">
+        <Typography variant="h4" color="primary">what's your new goal?</Typography>
+        <form>
+          <TextField id="standard-basic" label="type goal here" value={goal} multiline
+          onChange={(e) => setGoal(e.target.value)} required/>
+          <RadioGroup aria-label="type of goal" value={type} onChange={handleRadio}>
+            <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
+            <FormControlLabel value={"eoy"} control={<Radio />} label="end of year" />
+          </RadioGroup>
+          <Button variant="contained" color="secondary" onClick={handleSubmit}>
+            create!
+          </Button>
+        </form>
+      </div>
     </>
   )
 }

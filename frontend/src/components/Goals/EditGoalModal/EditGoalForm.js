@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { FormControlLabel, Radio, RadioGroup, Typography } from "@material-ui/core";
 import { editGoal, deleteGoal, getGoals } from "../../../store/goals";
+import './EditGoal.css'
 
 function EditGoalForm({setShowModal, id}) {
   const dispatch = useDispatch()
@@ -34,21 +35,23 @@ function EditGoalForm({setShowModal, id}) {
   }
   return (
     <>
-      <Typography variant="h4" color="primary">what's your new goal?</Typography>
-      <form>
-        <TextField id="standard-basic" label="type goal here" value={goal} multiline
-        onChange={(e) => setGoal(e.target.value)} required/>
-        <RadioGroup aria-label="type of goal" value={type} onChange={handleRadio}>
-          <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
-          <FormControlLabel value={"eoy"} control={<Radio />} label="end of year" />
-        </RadioGroup>
-        <Button variant="contained" color="secondary" onClick={handleSubmit}>
-          save!
-        </Button>
-        <Button variant="contained" color="primary" onClick={handleDelete}>
-          delete!
-        </Button>
-      </form>
+      <div className="edit-goal-form">
+        <Typography variant="h4" color="primary">what's your new goal?</Typography>
+        <form>
+          <TextField id="standard-basic" label="type goal here" value={goal} multiline
+          onChange={(e) => setGoal(e.target.value)} required/>
+          <RadioGroup aria-label="type of goal" value={type} onChange={handleRadio}>
+            <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
+            <FormControlLabel value={"eoy"} control={<Radio />} label="end of year" />
+          </RadioGroup>
+          <Button variant="contained" color="secondary" onClick={handleSubmit}>
+            save!
+          </Button>
+          <Button variant="contained" color="primary" onClick={handleDelete}>
+            delete!
+          </Button>
+        </form>
+      </div>
     </>
   )
 }
