@@ -3,10 +3,12 @@ import Typography from '@material-ui/core/Typography';
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useHistory} from "react-router-dom"
-import Slider from "react-slick";
 import { getGoals } from "../../../store/goals";
 import { completeSurvey } from "../../../store/survey";
+import SuccessModal from "../SuccessModal";
+import { Modal } from "../../../context/Modal"
 import './PrePracticeSurvey.css'
+import SuccessBox from "../SuccessModal/SuccessBox";
 
 
 
@@ -19,6 +21,7 @@ function PrePracticeForm(){
   const [answerString, setAnswerString] = useState("")
   const [goal, setGoal] = useState("")
   const [isCompleted, setIsCompleted] = useState(false)
+  const [showModal, setShowModal] = useState(false);
   // const [isSelected, setIsSelected] = useState(0)
   
 
@@ -27,11 +30,6 @@ function PrePracticeForm(){
     await dispatch(getGoals(sessionUser.id))
   },[])
 
-  // let settings = {
-  //   dot: true,
-  //   infinite: true, 
-  //   speed:500, 
-  // }
   const userId = sessionUser.id
   const goals = Object.values(goalsObjs)
   const wkGoals = goals.filter(goal => goal.type == "weekly")
@@ -53,6 +51,8 @@ function PrePracticeForm(){
     }
     const data = {userId, answerOne, isCompleted}
     await dispatch(completeSurvey(data))
+    setShowModal(true)
+    
   }
 
   const handleGoal = async(e) => {
@@ -151,6 +151,11 @@ function PrePracticeForm(){
           <div className="survey-button">
             <Button variant="contained" color="secondary"  onClick={handleComplete}>
               Mark Complete!</Button>
+              {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                  <SuccessBox />
+                </Modal>
+              )}
           </div>
       </div>
     </>
