@@ -1,11 +1,33 @@
 .weekly-summary-container{
-  margin: 10px 5px;
+  margin: 10px 10px;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.weekly-summary-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
 }
 
 .summary-streak{
-  margin: 10px 0px
+  margin: 10px 0px;
+  display:flex;
+  justify-content: space-evenly;
+  
 }
 
 .weekly-goals-summary{
-  margin: 10px 0px
+  margin: 10px 0px;
+}
+
+.single-goal{
+  display: flex;
+  
+}
+
+.entire-weekly-summary{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
 }

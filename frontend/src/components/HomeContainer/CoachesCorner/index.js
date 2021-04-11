@@ -35,7 +35,9 @@ import "./CoachesCorner.css"
   return (
     <>
     <div className="coaches-corner-container">
-      <Typography variant="h3" color="primary">Coach's Corner</Typography>
+      <div className="coaches-corner-title">
+        <Typography variant="h3" color="primary">Coach's Corner</Typography>
+      </div>
         <div className="allcards">
           {/* <Carousel> */}
             {posts && posts.map(post => (
