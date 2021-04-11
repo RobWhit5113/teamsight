@@ -60,84 +60,41 @@ function PrePracticeForm(){
     setGoal(e.target.value)
   }
 
-  // const handleSelected = e => {
-  //   e.preventDefault()
-  //   setIsSelected(e.target.id)
-  //   setAnswerOne(e.target.id)
-  // }
+
 
   
 
   return(
     <>
-      {/* <Slider {...settings}>
-        <div className="card-wrapper">
-          <div className="smiley-image" id={1} onClick={e => setAnswerOne(e.target.id)}>
-            <h3>Really Bad</h3>
-          </div>
-        </div>
-        <div className="card-wrapper">
-          <div className="smiley-image" id={2} onClick={e => setAnswerOne(e.target.id)}>
-            <h3>Bad</h3>
-          </div>
-        </div>
-        <div className="card-wrapper">
-          <div className="smiley-image" id={3} onClick={e => setAnswerOne(e.target.id)}>
-          <div className="smiley-image" id={4} onClick={e => setAnswerOne(e.target.id)}>
-            <h3>Alright</h3>
-          </div>
-        </div>
-        <div className="card-wrapper">
-           <h3>Good</h3>
-          </div>
-        </div>
-        <div className="card-wrapper">
-          <div className="smiley-image" id={5} onClick={e => setAnswerOne(e.target.id)}>
-            <h3>Great!</h3>
-          </div>
-        </div>
-      </Slider> */}
-      <div className="survey-container">
-          <div className="mood-title">
+      <div className="survey-title">
+        <Typography variant="h2" color="primary">Check-In</Typography>
+      </div>
+        <div className="survey-container">
+          <div className="multiple-choice-surveys">
+          <div className="mood-container">
             <Typography variant="h5" color="primary">how are you feeling today?</Typography>
+            <RadioGroup name="mood" value={answerString} onChange={e => setAnswerString(e.target.value)}>
+              
+                <FormControlLabel value={"very bad"} control={<Radio/>} label={"very bad"}/>
+                <FormControlLabel value={"bad"} control={<Radio/>} label={"bad"} />
+                <FormControlLabel value={"alright"} control={<Radio/>} label={"alright"}/>
+                <FormControlLabel value={"good"} control={<Radio/>} label={"good"} />
+                <FormControlLabel value={"great"} control={<Radio/>} label={"great"} />
+              
+            </RadioGroup>
           </div>
-        <div className="mood-container">
-          <RadioGroup name="mood" value={answerString} onChange={e => setAnswerString(e.target.value)}>
-            
-              <FormControlLabel value={"very bad"} control={<Radio/>} label={"very bad"}/>
-              <FormControlLabel value={"bad"} control={<Radio/>} label={"bad"} />
-              <FormControlLabel value={"alright"} control={<Radio/>} label={"alright"}/>
-              <FormControlLabel value={"good"} control={<Radio/>} label={"good"} />
-              <FormControlLabel value={"great"} control={<Radio/>} label={"great"} />
-            
-          </RadioGroup>
-          {/* <div className={isSelected ? "mood-selected":"mood"} id={1} onClick={handleSelected}>
-            <Typography variant="body1" color="primary">really bad</Typography>
-          </div>
-          <div className={isSelected ? "mood-selected":"mood"} id={2} onClick={e => setAnswerOne(e.target.id)}>
-            <Typography variant="body1" color="primary">bad</Typography>
-          </div>
-          <div className={isSelected ? "mood-selected":"mood"} id={3} onClick={e => setAnswerOne(e.target.id)}>
-            <Typography variant="body1" color="primary">alright</Typography>
-          </div>
-          <div className={isSelected ? "mood-selected":"mood"} id={4} onClick={e => setAnswerOne(e.target.id)}>
-            <Typography variant="body1" color="primary">good</Typography>
-          </div>
-          <div className={isSelected ? "mood-selected":"mood"} id={5} onClick={e => setAnswerOne(e.target.id)}>
-            <Typography variant="body1" color="primary">great</Typography>
-          </div> */}
+          <div className="goals-container">
+            <Typography variant="h5" color="primary">pick a goal to focus on today</Typography>
+            <RadioGroup aria-label="goal" name="goal" value={goal} onChange={handleGoal}>
+              {wkGoals && wkGoals.map(goal => (
+                <FormControlLabel value={goal.goal} control={<Radio/>} label={goal.goal} key={goal.id}/>
+              ))}
+            </RadioGroup>
         </div>
-        <div className="goals-container">
-          <Typography variant="h5" color="primary">pick a goal to focus on today</Typography>
-          <RadioGroup aria-label="goal" name="goal" value={goal} onChange={handleGoal}>
-            {wkGoals && wkGoals.map(goal => (
-              <FormControlLabel value={goal.goal} control={<Radio/>} label={goal.goal} key={goal.id}/>
-            ))}
-          </RadioGroup>
-        </div>
-        <div className="questions">
-          <Typography variant="h5" color="primary">is there anything else that you would like me to know? (optional)</Typography>
+      </div>
+        <div className="open-ended-question">
           <div className="text-area-survey">
+            <Typography variant="h5" color="primary">is there anything else that you would like me to know? (optional)</Typography>
             <TextField 
             id="outlined-textarea"
             placeholder="ask me anything!"

@@ -1,0 +1,9 @@
+.success-box-container{
+  margin: 10px;
+}
+
+.back-to-home{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

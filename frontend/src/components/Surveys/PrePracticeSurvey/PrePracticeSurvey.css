@@ -1,22 +1,7 @@
-.mood{
-  cursor: pointer;
-  margin-right: 30px;
-}
 
-.mood:hover{
-  border-bottom: solid black 1px;
-}
-
-.mood-selected{
-  background-color: #4DCCBD;
-}
-
-.mood-title{
-  margin: 10px 5px;
-}
 .mood-container{
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+  justify-content: flex-start; */
   margin: 10px 5px 20px 5px;
 }
 
@@ -31,5 +16,24 @@
   width: 700px
 }
 .survey-button{
+  display: flex;
+  justify-content: center;
   margin: 10px 5px 20px 5px;
+}
+
+.multiple-choice-surveys{
+  display: flex;
+  justify-content: space-around;
+}
+
+.survey-title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.open-ended-question{
+  display: flex;
+  justify-content: center;
 }
