@@ -17,9 +17,11 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
+    "chart.js": "^3.1.0",
     "lodash": "^4.17.21",
     "material-auto-rotating-carousel": "^3.0.2",
     "react-material-ui-carousel": "^2.2.2",
+    "react-responsive-carousel": "^3.2.18",
     "react-swipeable-views": "^0.13.9"
   }
 }
