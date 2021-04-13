@@ -5,10 +5,13 @@
 .allcards{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
 }
 
 .card{
-  width:400px
+  width:400px;
+  display: flex;
+  justify-content: center;
 }
 
 .coaches-corner-title{
