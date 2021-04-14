@@ -2,6 +2,7 @@ import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, makeStyl
 // import { AutoRotatingCarousel, Slide } from 'material-auto-rotating-carousel'
 import { Carousel } from 'react-responsive-carousel';
 import React, {useEffect} from 'react';
+import {Redirect} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../../store/posts';
 import "./CoachesCorner.css"
@@ -32,6 +33,11 @@ import "./CoachesCorner.css"
       dispatch(getPosts(sessionUser.teamId))
     }, [])
 
+    const externalHandle = e =>{
+      e.preventDefault()
+      window.location.href = e.target.id
+    }
+
   return (
     <>
     <div className="coaches-corner-container">
@@ -42,6 +48,7 @@ import "./CoachesCorner.css"
           {/* <Carousel> */}
             {posts && posts.map(post => (
               <div className="card">
+                {console.log(post.externalLink)}
                 <Card className={classes.root} key={post.id}>
                     <CardHeader
                     title={post.title} />
@@ -52,7 +59,11 @@ import "./CoachesCorner.css"
                       <Typography variant="body1">{post.post}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button variant="contained" color="secondary">Click to see more</Button>
+                      {post.externalLink ? 
+                      <div className="button-to-see-more" id={post.externalLink} onClick={externalHandle}>
+                        Click me to see more
+                        </div>
+                       : ""}
                     </CardActions>
                   </Card>
               </div>

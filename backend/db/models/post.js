@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    postMedia: DataTypes.STRING
+    postMedia: DataTypes.STRING,
+    externalLink: DataTypes.STRING
   }, {});
   Post.associate = function(models) {
     // associations can be defined here

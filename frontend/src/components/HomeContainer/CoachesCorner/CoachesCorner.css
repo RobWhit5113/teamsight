@@ -18,3 +18,21 @@
   display: flex;
   justify-content: center;
 }
+
+.button-to-see-more{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #4DCCBD;
+  color: #252466;
+  font-family: 'Comfortaa', 'Montserrat';
+  cursor: pointer;
+  width: 200px;
+  height: 30px;
+}
+
+
+.button-to-see-more:hover{
+  margin: 1px;
+}

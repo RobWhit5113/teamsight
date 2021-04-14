@@ -8,14 +8,16 @@ module.exports = {
         teamId: 1,
         title: "How do I get my mind right for racing?",
         post:"In order to get into the best mindset before racing, I recommend meditation. In just 5 minutes, if can help you get in the right mindset for the best performant. I prefer apps like headspace and peloton!",
-        postMedia: "https://teamsightposts.s3.us-east-2.amazonaws.com/posts/postPhotos/meditation.jpeg"
+        postMedia: "https://teamsightposts.s3.us-east-2.amazonaws.com/posts/postPhotos/meditation.jpeg",
+        externalLink:"https://www.mindful.org/how-to-meditate/"
       },
       {
         coachId: 1,
         teamId: 1,
         title: "What should I eat before a race?",
         post:"I would recommend eating a light meal the morning before a race. Everyone likes different thigs, but some light and balanced would be your best bet!",
-        postMedia: "https://teamsightposts.s3.us-east-2.amazonaws.com/posts/postPhotos/nutrition.jpeg"
+        postMedia: "https://teamsightposts.s3.us-east-2.amazonaws.com/posts/postPhotos/nutrition.jpeg",
+        externalLink: "https://www.youtube.com/watch?v=XHNlO9FUf90"
       },
       {
         coachId: 1,

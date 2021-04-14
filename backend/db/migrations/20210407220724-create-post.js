@@ -29,6 +29,9 @@ module.exports = {
       postMedia: {
         type: Sequelize.STRING
       },
+      externalLink: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
