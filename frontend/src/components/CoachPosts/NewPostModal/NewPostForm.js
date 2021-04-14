@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TextField from '@material-ui/core/TextField';
 import { createPost } from "../../../store/posts";
+import './NewPostForm.css'
 
 
 export default function NewPostForm({setShowModal}) {
@@ -30,22 +31,28 @@ export default function NewPostForm({setShowModal}) {
 
   return(
     <div className="new-post-form">
-      <Typography variant="h4" color="primary">inspire your athletes!</Typography>
+      <div className="new-post-title">
+        <Typography variant="h4" color="primary">inspire your athletes!</Typography>
+      </div>
       <form>
-        <TextField id="standard-basic" placeholder="answer an athlete's question or type one here" 
-          label="title" value={title} multiline
-          onChange={(e) => setTitle(e.target.value)} required/>
-        <TextField id="standard-basic" label="body" placeholder="the body of your post" value={post}
-          multiline onChange={(e) => setPost(e.target.value)} required/>
-        <div className="post-media-upload">
-            <Typography variant="body1">Choose an image for your post!</Typography>
-            <input type="file" onChange={updateFile}/>
+        <div className="all-new-post-fields">
+            <TextField variant="standard" placeholder="answer an athlete's question or type one here" 
+              label="title" value={title} multiline
+              onChange={(e) => setTitle(e.target.value)} required/>
+          <TextField variant="standard" label="body" placeholder="the body of your post" value={post}
+            multiline className="new-post-input" onChange={(e) => setPost(e.target.value)} required/>
+          <div className="post-media-upload">
+              <Typography variant="body1">Choose an image for your post!</Typography>
+              <input className="choose-file-post" type="file" onChange={updateFile}/>
+          </div>
+          <TextField variant="standard" label="link" placeholder="copy a link to a video or article here!" value={externalLink}
+            multiline className="new-post-input" onChange={(e) => setExternalLink(e.target.value)}/>
+          <div className="new-post-button">
+            <Button variant="outlined" color="primary" onClick={handleNewPost}>
+              Create Post!
+            </Button>
+          </div>
         </div>
-        <TextField id="standard-basic" label="link" placeholder="copy a link to a video or article here!" value={externalLink}
-          multiline onChange={(e) => setExternalLink(e.target.value)}/>
-        <Button variant="outlined" color="primary" onClick={handleNewPost}>
-          Create Post!
-        </Button>
       </form>
     </div>
   )

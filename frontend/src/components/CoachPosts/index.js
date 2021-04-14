@@ -13,7 +13,6 @@ export default function CoachPosts(){
   return (
     <>
       <Navigation/>
-      <NewPostModal/>
       <PostTiles />
     </>
   )

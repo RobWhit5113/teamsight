@@ -3,13 +3,15 @@ import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../../store/posts';
 import EditPostModal from '../EditPostModal';
+import NewPostModal from '../NewPostModal';
 import "./PostTiles.css"
 
 
   const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 400,
-      minHeight: 500
+      minHeight: 500,
+      backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`
     },
     media: {
       height:0,
@@ -46,6 +48,9 @@ import "./PostTiles.css"
     <div className="coaches-corner-container">
       <div className="coaches-corner-title">
         <Typography variant="h3" color="primary">Your Posts</Typography>
+      </div>
+      <div className="new-post-button">
+        <NewPostModal/>
       </div>
         <div className="allcards">
             {posts && posts.map(post => (

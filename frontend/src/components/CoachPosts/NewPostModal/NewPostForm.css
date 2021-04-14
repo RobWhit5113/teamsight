@@ -1,0 +1,35 @@
+.new-post-form{
+  margin: 20px;
+  height: 400px;
+  width: 600px
+}
+
+.new-post-title{
+  display: flex;
+  justify-content: center;
+}
+
+.all-new-post-fields{
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+
+.post-media-upload{
+  margin: 20px 0px;
+}
+
+.choose-file-post{
+  font-family: 'Comfortaa', 'Montserrat';
+}
+
+/* #file-upload-button{
+  font-family: 'Comfortaa', 'Montserrat';
+
+}
+
+.new-post-input{
+  margin-bottom: 5px;
+  width: auto;
+} */

@@ -8,7 +8,8 @@ import "./CoachesCorner.css"
   const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 400,
-      minHeight: 500
+      minHeight: 500,
+      backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`
     },
     media: {
       height:0,
