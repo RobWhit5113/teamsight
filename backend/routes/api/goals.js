@@ -40,6 +40,4 @@ router.delete('/:id', async(req,res) => {
   return res.json({message: "Success!"})
 })
 
-//delete a goal
-router.delete
 module.exports = router

@@ -2,6 +2,7 @@ import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, makeStyl
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../../store/posts';
+import EditPostModal from '../EditPostModal';
 import "./PostTiles.css"
 
 
@@ -65,8 +66,8 @@ import "./PostTiles.css"
                         Link to article or video
                         </div>
                        : ""}
-                      <div className="button-to-see-more" id={post.externalLink} onClick={editPost}>
-                        Edit
+                      <div  id={post.externalLink} onClick={editPost}>
+                        <EditPostModal id={post.id} />
                         </div>
                     </CardActions>
                   </Card>
