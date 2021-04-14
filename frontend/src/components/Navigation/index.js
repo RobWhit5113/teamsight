@@ -26,6 +26,11 @@ function Navigation(){
     history.push('/goals')
   }
 
+  const handlePosts = (e) => {
+    e.preventDefault()
+    history.push('/posts')
+  }
+
   const coachNav = (
     <>
       <div className="roster-nav" onClick={handleRoster}>
@@ -34,7 +39,7 @@ function Navigation(){
         </Typography>
       </div>
       <div className="posts-nav">
-        <Typography variant="body1" color="primary">
+        <Typography variant="body1" color="primary" onClick={handlePosts}>
           Posts
         </Typography>
       </div>

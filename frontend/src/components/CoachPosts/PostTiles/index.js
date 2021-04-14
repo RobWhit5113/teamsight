@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, CardHeader, CardMedia, makeStyl
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../../store/posts';
-import "./CoachesCorner.css"
+import "./PostTiles.css"
 
 
   const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,7 @@ import "./CoachesCorner.css"
   }))
 
   
-  export default function CoachesCorner() {
+  export default function PostTiles() {
     const dispatch = useDispatch()
     const classes = useStyles()
     
@@ -35,14 +35,18 @@ import "./CoachesCorner.css"
       window.location.href = e.target.id
     }
 
+    const editPost = e => {
+      e.preventDefault()
+
+    }
+
   return (
     <>
     <div className="coaches-corner-container">
       <div className="coaches-corner-title">
-        <Typography variant="h3" color="primary">Coach's Corner</Typography>
+        <Typography variant="h3" color="primary">Your Posts</Typography>
       </div>
         <div className="allcards">
-          {/* <Carousel> */}
             {posts && posts.map(post => (
               <div className="card">
                 {console.log(post.externalLink)}
@@ -58,9 +62,12 @@ import "./CoachesCorner.css"
                     <CardActions>
                       {post.externalLink ? 
                       <div className="button-to-see-more" id={post.externalLink} onClick={externalHandle}>
-                        Click me to see more
+                        Link to article or video
                         </div>
                        : ""}
+                      <div className="button-to-see-more" id={post.externalLink} onClick={editPost}>
+                        Edit
+                        </div>
                     </CardActions>
                   </Card>
               </div>

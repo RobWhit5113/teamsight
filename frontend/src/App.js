@@ -13,6 +13,7 @@ import Surveys from "./components/Surveys";
 import GoalsComponent from "./components/Goals";
 import Profile from "./components/Profile";
 import Roster from "./components/Roster";
+import CoachPosts from "./components/CoachPosts";
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path="/roster">
             <Roster/>
+          </Route>
+          <Route path="/posts">
+            <CoachPosts/>
           </Route>
           <Route exact path="/" >
             <SplashPage/>
