@@ -45,7 +45,7 @@ export default function EditPostForm({setShowModal, id}) {
   return(
     <div className="edit-post-form">
       <div className='edit-post-title'>
-        <Typography variant="h4" color="primary">inspire your athletes!</Typography>
+        <Typography variant="h4" color="primary">make changes to your inspiration</Typography>
       </div>
       <form>
         <div className='all-edit-post-fields'>

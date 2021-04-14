@@ -101,6 +101,7 @@ function PrePracticeForm(){
             multiline
             variant="outlined"
             color="secondary"
+            style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
             fullWidth>
             </TextField>
           </div>

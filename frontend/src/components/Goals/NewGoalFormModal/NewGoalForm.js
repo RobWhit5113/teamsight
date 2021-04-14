@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { FormControlLabel, Radio, RadioGroup, Typography } from "@material-ui/core";
 import { createGoal } from "../../../store/goals";
+import './NewGoal.css'
 
 function NewGoalForm({setShowModal}) {
   const dispatch = useDispatch()
@@ -27,17 +28,27 @@ function NewGoalForm({setShowModal}) {
   return (
     <>
     <div className="new-goal-form">
+      <div className='new-goal-title'>
         <Typography variant="h4" color="primary">what's your new goal?</Typography>
+      </div>
         <form>
-          <TextField id="standard-basic" label="type goal here" value={goal} multiline
-          onChange={(e) => setGoal(e.target.value)} required/>
-          <RadioGroup aria-label="type of goal" value={type} onChange={handleRadio}>
-            <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
-            <FormControlLabel value={"eoy"} control={<Radio />} label="end of year" />
-          </RadioGroup>
-          <Button variant="contained" color="secondary" onClick={handleSubmit}>
-            create!
-          </Button>
+            <div className="new-goal-inputs">
+              <TextField id="standard-basic" label="type goal here" value={goal} multiline
+              onChange={(e) => setGoal(e.target.value)} required
+              variant="outlined" fullWidth style={{backgroundColor:`rgba(${127}, ${125}, ${227}, ${.2})`}} />
+            </div>
+            <div className="new-goal-inputs">
+              <Typography variant='body1' color="primary">is it a time goal or weekly goal?</Typography>
+              <RadioGroup row value={type} onChange={handleRadio}>
+                <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
+                <FormControlLabel value={"eoy"} control={<Radio />} label="time" />
+              </RadioGroup>
+            </div>
+            <div className="create-goal-button">
+              <Button variant="contained" color="secondary" onClick={handleSubmit} fullWidth>
+                create!
+              </Button>
+            </div>
         </form>
       </div>
     </>

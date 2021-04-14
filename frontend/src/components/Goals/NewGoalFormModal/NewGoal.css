@@ -1,3 +1,14 @@
 .new-goal-form{
-  margin: 10px
+  margin: 20px;
+  height: auto;
+  width: 600px
+}
+
+.new-goal-title{
+  display: flex;
+  justify-content: center;
+}
+
+.new-goal-inputs{
+  margin: 10px 0px;
 }

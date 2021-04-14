@@ -36,19 +36,30 @@ function EditGoalForm({setShowModal, id}) {
   return (
     <>
       <div className="edit-goal-form">
-        <Typography variant="h4" color="primary">what's your new goal?</Typography>
+        <div className='edit-goal-title'>
+          <Typography variant="h4" color="primary">change your goal!</Typography>
+        </div>
         <form>
-          <TextField id="standard-basic" label="type goal here" value={goal} multiline
-          onChange={(e) => setGoal(e.target.value)} required/>
-          <RadioGroup aria-label="type of goal" value={type} onChange={handleRadio}>
-            <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
-            <FormControlLabel value={"eoy"} control={<Radio />} label="end of year" />
-          </RadioGroup>
-          <Button variant="contained" color="secondary" onClick={handleSubmit}>
-            save!
-          </Button>
-          <Button variant="contained" color="primary" onClick={handleDelete}>
-            delete!
+          <div className="edit-goal-inputs">
+          <TextField variant="outlined" label="type goal here" value={goal} multiline
+          onChange={(e) => setGoal(e.target.value)} required fullWidth
+          style={{backgroundColor:`rgba(${127}, ${125}, ${227}, ${.2})`}}/>
+          </div>
+          <div className="edit-goal-inputs">
+            <RadioGroup row value={type} onChange={handleRadio}>
+              <FormControlLabel value={"weekly"} control={<Radio />} label="weekly" />
+              <FormControlLabel value={"eoy"} control={<Radio />} label="end of year" />
+            </RadioGroup>
+          </div>
+          <div className="edit-goal-buttons">
+            <Button variant="contained" color="secondary" onClick={handleSubmit}
+            fullWidth>
+              save changes
+            </Button>
+          </div>
+          <Button variant="contained" color="primary" onClick={handleDelete}
+          fullWidth>
+            delete goal
           </Button>
         </form>
       </div>
