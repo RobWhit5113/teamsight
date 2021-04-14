@@ -1,19 +1,17 @@
-.new-post-form{
+.edit-post-form{
   margin: 20px;
-  height: 400px;
+  height: auto;
   width: 600px
 }
 
-.new-post-title{
+.edit-post-title{
   display: flex;
   justify-content: center;
 }
 
-.all-new-post-fields{
+.all-edit-post-fields{
   display: flex;
   flex-direction: column;
-  
-  
 }
 
 .post-media-upload{
@@ -24,8 +22,10 @@
   font-family: 'Comfortaa', 'Montserrat';
 }
 
-
-
-.new-post-input{
+.edit-post-button{
   margin: 10px 0px;
-} 
+}
+
+.edit-post-inputs{
+  margin: 10px 0px;
+}
