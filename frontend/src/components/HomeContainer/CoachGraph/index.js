@@ -33,7 +33,9 @@ athletes.forEach(athlete => {
   return (
     <>
     <div className="score-container">
+      <div className="score-title">
         <Typography variant="h4" color="primary">Here's How Your Team Is Doing Today</Typography>
+      </div>
         <div className="swimmer-score">
           <div className="score-calculation">
             <Typography variant="h5" color="secondary">

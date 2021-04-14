@@ -29,20 +29,31 @@ function LoginForm() {
   return (
     <>
       <div className="login-form-container">
-        <Typography variant="h2" color="primary">Log In</Typography>
+        <div className="login-title">
+          <Typography variant="h4" color="primary">Log In</Typography>
+        </div>
         <form>
           <ul>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
           </ul>
-            <TextField id="standard-basic" label="Username" value={credential}
-          onChange={(e) => setCredential(e.target.value)} required/>
-            <TextField id="standard-basic" label="Password" value={password}
-          onChange={(e) => setPassword(e.target.value)} required/>
-          <Button variant="outlined" color="primary" onClick={handleSubmit}>
-            Log In
-          </Button>
+          <div className='login-input'>
+            <TextField variant='outlined' label="Username" value={credential}
+          onChange={(e) => setCredential(e.target.value)} required fullWidth
+          style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}/>
+          </div>
+          <div className='login-input'>
+            <TextField variant='outlined' label="Password" value={password}
+          onChange={(e) => setPassword(e.target.value)} required fullWidth
+          style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+          type='password'/>
+          </div>
+          <div className='login-button'>
+            <Button variant="outlined" color="primary" onClick={handleSubmit} fullWidth>
+              Log In
+            </Button>
+          </div>
         </form>
       </div>
     </>

@@ -23,7 +23,7 @@ function QuestionComponent({setShowModal}) {
   return (
     <>
       <div className="question-component">
-        <Typography variant="h2" color="primary">Are you a Coach?</Typography>
+        <Typography variant="h4" color="primary">Are you a Coach?</Typography>
         <div className="question-buttons">
           <Button variant="outlined" color="primary" onClick={ifCoach}>
               Yes
