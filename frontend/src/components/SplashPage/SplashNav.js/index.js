@@ -1,14 +1,17 @@
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
 import LoginFormModal from "../../Login_Signup/LoginFormModal";
 import QuestionModal from "../../Login_Signup/QuestionModal";
+import '../../Navigation/Navigation.css'
 
 
 function SplashNav() {
   return (
     <>
-      <LoginFormModal>Login</LoginFormModal>
-      <QuestionModal>Signup</QuestionModal>
+      <div className="top-nav">
+      <div className="nav-bar-buttons">
+        <LoginFormModal/>
+        <QuestionModal/>
+      </div>
+      </div>
     </>
   )
 }

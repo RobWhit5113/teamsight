@@ -31,3 +31,13 @@
   margin: 0 10px
 }
 
+.login-modal-div,
+.signup-modal-div{
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.login-modal-div:hover,
+.signup-modal-div:hover{
+  border-bottom: 1px solid black;
+}
