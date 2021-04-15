@@ -19,10 +19,25 @@ function LoginForm() {
     setErrors([]);
     await dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
-        if (res.data && res.data.errors) setErrors(res.data.errors)
-          
+        if (res.data && res.data.errors) setErrors(res.data.errors) 
       }
     );
+    history.push('/home')
+  };
+
+  const handleCoach = async(e) => {
+    e.preventDefault();
+    const credential = "coachtrent@swim.io"
+    const password = "password"
+    await dispatch(sessionActions.login({ credential, password }))
+    history.push('/home')
+  };
+
+  const handleUser = async(e) => {
+    e.preventDefault();
+    const credential = "demo@user.io"
+    const password = "password"
+    await dispatch(sessionActions.login({ credential, password }))
     history.push('/home')
   };
 
@@ -53,6 +68,18 @@ function LoginForm() {
             <Button variant="outlined" color="primary" onClick={handleSubmit} fullWidth>
               Log In
             </Button>
+          </div>
+          <div className="demo-title">
+            <Typography variant="body1" color="primary">
+              Don't have an account? Try out one of our Demo Logins</Typography>
+          </div>
+          <div className="demo-buttons">
+            <div className="demo-athlete">
+              <Button variant="contained" color="secondary" onClick={handleUser}>Demo Athlete</Button>
+            </div>
+            <div className="demo-coach">
+              <Button variant="contained" color="primary" onClick={handleCoach}>Demo Coach</Button>
+            </div>
           </div>
         </form>
       </div>

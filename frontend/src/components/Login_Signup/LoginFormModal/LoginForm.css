@@ -13,3 +13,21 @@
   margin: 20px 0px;
 }
 
+.demo-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.demo-buttons{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.demo-athlete,
+.demo-coach{
+  margin: 0 10px
+}
+

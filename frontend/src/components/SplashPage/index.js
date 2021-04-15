@@ -1,48 +1,21 @@
-import { Button, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import React from 'react';
-import * as sessionActions from '../../store/session'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import LoginFormModal from '../Login_Signup/LoginFormModal';
-import QuestionModal from '../Login_Signup/QuestionModal'
 import Carousel from 'react-material-ui-carousel'
 import './SplashPage.css'
+import SplashNav from './SplashNav.js';
 
 function SplashPage(){
 
 const dispatch = useDispatch()
 const history = useHistory()
 
-  const handleUser = async(e) => {
-    e.preventDefault();
-    const credential = "demo@user.io"
-    const password = "password"
-    await dispatch(sessionActions.login({ credential, password }))
-    history.push('/home')
-  };
-
-    const handleCoach = async(e) => {
-    e.preventDefault();
-    const credential = "coachtrent@swim.io"
-    const password = "password"
-    await dispatch(sessionActions.login({ credential, password }))
-    history.push('/home')
-  };
-
 return (
   <>
+    <SplashNav/>
     <div className="container">
       <Typography variant="h2" color="primary">Welcome to Teamsight</Typography>
-      <div className="splash-buttons"> 
-        <LoginFormModal> Login! </LoginFormModal>
-        <QuestionModal> Sign Up!</QuestionModal>
-      </div>
-        <Typography variant="body1" color="primary" className="splash-demo">
-          Or try out one of the demo logins</Typography>
-      <div className="demo-buttons">
-        <Button variant="contained" color="secondary" onClick={handleUser}>Demo Athlete</Button>
-        <Button variant="contained" color="primary" onClick={handleCoach}>Demo Coach</Button>
-      </div>
     </div>
     <div className="carousel-splash">
       <Carousel
