@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     teamLogo: {
       type: DataTypes.STRING,
-      allowNull: false
+      
     },
     location: {
       type: DataTypes.STRING,

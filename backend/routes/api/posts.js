@@ -21,8 +21,13 @@ router.post('/',
   singleMulterUpload("postMedia"),
   asyncHandler(async(req,res) => {
   const {coachId, teamId, title, post, externalLink} = req.body
-  const postMedia = await singlePublicFileUpload(req.file)
-  const completePost = await Post.create({coachId, teamId, title, post, postMedia, externalLink})
+  let completePost
+  if(req.file){
+    const postMedia = await singlePublicFileUpload(req.file)
+    completePost = await Post.create({coachId, teamId, title, post, postMedia, externalLink})
+  }else {
+    completePost = await Post.create({coachId, teamId, title, post, externalLink})
+  }
   return res.json({completePost})
 }))
 

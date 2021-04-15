@@ -1,0 +1,19 @@
+.signup-title{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px
+}
+
+.signup-container{
+  display: flex;
+  justify-content: center;
+}
+
+.signup-input{
+  margin: 10px 0px;
+  width: 100%
+}
+
+.signup-form{
+  width: 50%
+}

@@ -44,18 +44,28 @@ function TeamSignUpForm() {
           <ul> 
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
-          <TextField id="standard-basic" label="Team Name" value={teamName}
-            onChange={e => setTeamName(e.target.value)}
-          />
-          <TextField id="standard-basic" label="Location" value={location}
+          <div className="teamsignup-input">
+            <TextField variant="outlined" label="Team Name" value={teamName}
+              style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+              onChange={e => setTeamName(e.target.value)} fullWidth
+              required
+            />
+          </div>
+          <div classname="teamsignup-input">
+          <TextField variant="outlined" label="Location" value={location}
+            style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+            fullWidth
             onChange={e => setLocation(e.target.value)}
+            required
           />
+          </div>
           <div className="logo-upload">
             <Typography variant="body1">Upload your logo!</Typography>
             <input type="file" onChange={updateFile}/>
           </div>
           <div classname="team-signup-button">
-            <Button variant="outlined" color="primary" onClick={handleSubmit}>
+            <Button variant="outlined" color="primary" onClick={handleSubmit}
+              fullWidth>
               Next
             </Button>
           </div>

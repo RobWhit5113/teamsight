@@ -5,16 +5,18 @@ import * as sessionActions from "../../../store/session";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
+import './SignupForm.css'
 
 function CoachSignupFormPage() {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
+  const team = useSelector(state => state.team)
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [teamId, setTeamId] = useState("");
+  const [teamId, setTeamId] = useState(team.id);
   const [isCoach, setIsCoach] = useState(true)
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -38,30 +40,57 @@ function CoachSignupFormPage() {
 
   return(
     <>
-      <Typography variant="h3" color="primary">Sign Up</Typography>
-      <form>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        
-        <TextField id="standard-basic" label="First Name" value={firstName}
-        onChange={e => setFirstName(e.target.value)} required/>
-        <TextField id="standard-basic" label="Last Name" value={lastName}
-        onChange={(e) => setLastName(e.target.value)} required/>
-        <TextField id="standard-basic" label="Email" value={email}
-        onChange={(e) => setEmail(e.target.value)} required/>
-        <TextField id="standard-basic" label="Username" value={username}
-        onChange={(e) => setUsername(e.target.value)} required/>
-        <TextField id="standard-basic" label="Password" value={password}
-        onChange={(e) => setPassword(e.target.value)} required/>
-        <TextField id="standard-basic" label="Confirm Password" value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)} required/>
-        <TextField id="standard-basic" label="Team ID" value={teamId}
-        onChange={(e) => setTeamId(e.target.value)} required/>
-        <Button variant="outlined" color="primary" onClick={handleSubmit}>
-          Sign Up
-        </Button>
-      </form>
+      <div className="signup-title">
+        <Typography variant="h3" color="primary">Sign Up</Typography>
+      </div>
+      <div className="signup-container">
+        <form className="signup-form">
+          <ul>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+            <div className="signup-input">
+              <TextField variant="outlined" label="First Name" value={firstName}
+              onChange={e => setFirstName(e.target.value)} required fullWidth
+              style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}/>
+            </div>
+            <div className="signup-input">
+              <TextField variant="outlined" label="Last Name" value={lastName}
+              onChange={(e) => setLastName(e.target.value)} required
+              style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+              fullWidth/>
+            </div>
+            <div className="signup-input">
+              <TextField variant="outlined" label="Email" value={email}
+              onChange={(e) => setEmail(e.target.value)} required
+              style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+              fullWidth/>
+            </div>
+            <div className="signup-input">
+              <TextField variant="outlined" label="Username" value={username}
+              onChange={(e) => setUsername(e.target.value)} required
+              style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+              fullWidth/>
+            </div>
+            <div className="signup-input">
+              <TextField variant="outlined" label="Password" value={password}
+              onChange={(e) => setPassword(e.target.value)} required
+              style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+              fullWidth/>
+            </div>
+            <div className="signup-input">
+              <TextField variant="outlined" label="Confirm Password" value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)} required
+              style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}
+              fullWidth/>
+            </div>
+            <div className="signup-button">
+              <Button variant="contained" color="primary" onClick={handleSubmit}
+                fullWidth>
+                Sign Up
+              </Button>
+            </div>
+        </form>
+      </div>
     </>
   )
 }

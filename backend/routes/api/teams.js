@@ -13,8 +13,14 @@ router.post(
   singleMulterUpload("teamLogo"),
   asyncHandler(async(req,res) => {
    const {teamName, location} = req.body
-   const teamLogo = await singlePublicFileUpload(req.file)
-   const team = await Team.create({teamName, teamLogo, location});
+   let team
+   if(req.file){
+    const teamLogo = await singlePublicFileUpload(req.file)
+    team = await Team.create({teamName, teamLogo, location});
+
+   }else {
+    team = await Team.create({teamName, location});
+   }
     return res.json({team})
   })
 )
