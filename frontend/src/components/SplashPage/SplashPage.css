@@ -1,8 +1,21 @@
 .athlete-title-splash{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  transition: all 1s ease-in;
+  width: 100%;
+  overflow: hidden;
+}
+
+.athlete-title-splash p{
+  animation: 10s slide-right;
+}
+
+@keyframes athlete-title-splash{
+  from{
+    margin-left: -100%;
+    width: 300%
+  }
+  to{
+    margin-left: 0%;
+    width:100%
+  }
 }
 
 .splash-buttons {
@@ -33,7 +46,9 @@
   align-content: center;
 }
 
-.background-image{
+.splash-header{
   background-image: url("./phelps-fly.jpeg");
-  height: 430px;
+  height: 400px;
+
+
 }

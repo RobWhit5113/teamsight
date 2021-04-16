@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
@@ -6,23 +6,37 @@ import Carousel from 'react-material-ui-carousel'
 import './SplashPage.css'
 import SplashNav from './SplashNav.js';
 
-function SplashPage(){
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: '100vh',
+    backgroundImage: './phelps-fly.jpeg'
+  }
+}))
 
-const dispatch = useDispatch()
-const history = useHistory()
+function SplashPage(){
+  const classes = useStyles()
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+
 
 return (
-  <>
-    <nav className='background-image'></nav>
-    <SplashNav/>
-    <div className="athlete-title-splash">
-      <Typography variant="h4" color="primary">Every great athlete...</Typography>
+  <div className={classes.root}>
+    <div className= 'splash-header'>
+      <SplashNav/>
+      <div>
+        
+      </div>
+      <div className="athlete-title-splash">
+        <p>I am the best ever</p>
+        <Typography variant="h4" color="primary">Every great athlete...</Typography>
+      </div>
+      {/* <div className="coach-title-splash">
+        <Typography variant="h4" color="primary">Starts with a great coach</Typography>
+      </div>  */}
     </div>
-    <div className="coach-title-splash">
-      <Typography variant="h4" color="primary">Starts with a great coach</Typography>
-    </div>
-    <div className="carousel-splash">
-      <Carousel
+    {/* <div className="carousel-splash">
+      {/* <Carousel
       autoplay={true}
       >
         <div className="splash-image">
@@ -51,9 +65,9 @@ return (
         </div>
        
        
-      </Carousel>
-    </div>
-  </>
+      </Carousel> */}
+    {/* </div> */} 
+  </div>
 )
 
 }
