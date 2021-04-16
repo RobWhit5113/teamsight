@@ -13,9 +13,13 @@ const history = useHistory()
 
 return (
   <>
+    <nav className='background-image'></nav>
     <SplashNav/>
-    <div className="container">
-      <Typography variant="h2" color="primary">Welcome to Teamsight</Typography>
+    <div className="athlete-title-splash">
+      <Typography variant="h4" color="primary">Every great athlete...</Typography>
+    </div>
+    <div className="coach-title-splash">
+      <Typography variant="h4" color="primary">Starts with a great coach</Typography>
     </div>
     <div className="carousel-splash">
       <Carousel
