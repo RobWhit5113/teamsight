@@ -1,3 +1,7 @@
+.splash-container{
+  height: 100vh;
+}
+
 .athlete-title-splash{
   width: 40%;
   overflow: hidden;
@@ -11,8 +15,9 @@
 .coach-title-splash{
   width: 40%;
   display: flex;
+  overflow: hidden;
   justify-content: center;
-  margin-top: 30%;
+  margin-top: 460px;
   background-color: #4DCCBD;
   border-radius: 10px;
 }
@@ -94,4 +99,27 @@
   border-radius: 10px;
   padding: 10px;
   text-align: center;
+}
+
+.story-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.space{
+  height: 10px
+}
+
+.story-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  margin-bottom: 20px
+}
+
+.story-title{
+  display: flex;
+  justify-content: center;
 }

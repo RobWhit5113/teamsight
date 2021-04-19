@@ -1,0 +1,25 @@
+.footer-container{
+  display: flex;
+  background-color: #252466;
+  justify-content: flex-end;
+  height: 40px;
+}
+
+.footer-creation{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+  width: 100%;
+}
+
+.footer-links{
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.footer-links:hover{
+  border-bottom: 1px solid #4DCCBD
+}

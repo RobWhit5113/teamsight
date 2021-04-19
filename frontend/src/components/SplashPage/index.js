@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import Carousel from 'react-material-ui-carousel'
 import './SplashPage.css'
 import SplashNav from './SplashNav.js';
+import Footer from '../Footer';
 
 
 function SplashPage(){
@@ -18,10 +19,9 @@ return (
     <div className= 'splash-header'>
       <SplashNav/>
       <div>
-        
       </div>
       <div className="athlete-title-splash">
-        <Typography variant="h4" color="primary">Every great athlete...</Typography>
+        <Typography variant="h4" color="primary">Every great swimmer</Typography>
       </div>
       <div className="coach-title-container">
         <div className="coach-title-splash">
@@ -57,38 +57,33 @@ return (
           </Typography>
         </div>
       </div>
-    {/* <div className="carousel-splash">
-      {/* <Carousel
-      autoplay={true}
-      >
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/phelps-bowman.jpeg" /> 
+      <div className="story-container">
+        <div className="story-content">
+          <div className="story-title">
+            <Typography variant='h4' color='primary'>Our Story</Typography>
+          </div>
+          <div className="story-body">
+            <Typography variant='body1' color='primary'>
+              What makes a great swimmer? Dedication? Genetics? Webbed-feet? Yes, these are all true. But what 
+              we have found as the common denominator amongst all great swimmers, and athletes, is an immense amount
+              of trust in their coach. This trust, starts with building a strong relationship, and is a core building block 
+              to elite performance.
+            </Typography>
+            <div className='space'/>
+            <Typography variant='body1' color='primary'>
+              While there are many different theories on technique and nutrition, we were hard pressed to find a tool to 
+              help facilitate strong relationships between athletes and coaches. So, we created one. Teamsight is designed to 
+              help coaches get an idea on how their athletes are feeling, help their athletes set goals, and to give coaches
+              another avenue to inspire and inform their athletes. 
+            </Typography> 
+            <div className="space"></div>
+            <Typography variant='body1' color='primary'>
+              At teamsight, we have a simple goal, to help athletes and coaches forge stronger relationships through communication.
+            </Typography>
+          </div>
         </div>
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/franklin-coach.jpeg" />  
-        </div>
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/ledecky-coach.jpeg" /> 
-        </div>
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/lochte.jpeg" />
-        </div>
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/phelps.jpeg" />
-        </div>
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/piersol-reese.jpeg" />
-        </div>
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/reese-swimmer.jpeg" />
-        </div>
-        <div className="splash-image">
-          <img src="https://teamsightposts.s3.us-east-2.amazonaws.com/splash-images/splash-photos/troy-dressel.jpeg" />
-        </div>
-       
-       
-      </Carousel> */}
-    {/* </div> */} 
+      </div>
+      <Footer/>
   </div>
 )
 

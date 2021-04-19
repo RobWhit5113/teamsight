@@ -18,6 +18,15 @@
   z-index: 1;
 }
 
+.nav-logo-text{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+  width: 100%;
+
+}
+
 .nav-bar-buttons{
   display: flex;
   align-items: center;
@@ -37,7 +46,7 @@
 .goals-nav:hover,
 .roster-nav:hover,
 .posts-nav:hover{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #4DCCBD;
 }
 
 /* .home-nav.,

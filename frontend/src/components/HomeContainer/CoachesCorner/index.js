@@ -46,7 +46,6 @@ import "./CoachesCorner.css"
           {/* <Carousel> */}
             {posts && posts.map(post => (
               <div className="card">
-                {console.log(post.externalLink)}
                 <Card className={classes.root} key={post.id}>
                     <CardHeader
                     title={post.title} />
