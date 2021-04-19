@@ -7,10 +7,13 @@ function SplashNav() {
   return (
     <>
       <div className="top-splash-nav">
-      <div className="nav-bar-buttons">
-        <LoginFormModal/>
-        <QuestionModal/>
-      </div>
+        <div className="nav-logo">
+          
+        </div>
+        <div className="nav-bar-buttons">
+          <LoginFormModal/>
+          <QuestionModal/>
+        </div>
       </div>
     </>
   )

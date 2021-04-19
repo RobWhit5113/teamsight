@@ -12,6 +12,12 @@
   height: 40px;
 }
 
+.nav-logo{
+  background-image: url("./teamsight_logo.png");
+  width: 300px;
+  z-index: 1;
+}
+
 .nav-bar-buttons{
   display: flex;
   align-items: center;
