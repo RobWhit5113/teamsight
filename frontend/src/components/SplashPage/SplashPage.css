@@ -1,10 +1,27 @@
 .athlete-title-splash{
-  width: 100%;
+  width: 40%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.coach-title-splash{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-end;
+  align-items:flex-end;
+  margin-top: 30%;
 }
 
 .athlete-title-splash p{
-  animation: 10s slide-right;
+  transition-property: background-color ;
+  transition-duration: 1.5s;
+  
+}
+
+.athlete-title-splash:hover{
+  transform: red;
 }
 
 @keyframes athlete-title-splash{
@@ -48,7 +65,9 @@
 
 .splash-header{
   background-image: url("./phelps-fly.jpeg");
-  height: 400px;
+  background-size: 100%;
+  background-position-y: -100px;
+  height: 600px;
 
 
 }
