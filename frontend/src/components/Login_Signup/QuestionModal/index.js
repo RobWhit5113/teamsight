@@ -10,7 +10,7 @@ function QuestionModal() {
   return (
     <>
       <div onClick={() => setShowModal(true)} className="signup-modal-div">
-        <Typography variant="body1" color="primary">
+        <Typography variant="h6" color="secondary">
            Signup
          </Typography>
       </div>

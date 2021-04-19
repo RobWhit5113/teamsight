@@ -6,7 +6,7 @@ import '../../Navigation/Navigation.css'
 function SplashNav() {
   return (
     <>
-      <div className="top-nav">
+      <div className="top-splash-nav">
       <div className="nav-bar-buttons">
         <LoginFormModal/>
         <QuestionModal/>

@@ -23,9 +23,11 @@ return (
       <div className="athlete-title-splash">
         <Typography variant="h4" color="primary">Every great athlete...</Typography>
       </div>
-      <div className="coach-title-splash">
-        <Typography variant="h4" color="primary">Starts with a great coach</Typography>
-      </div> 
+      <div className="coach-title-container">
+        <div className="coach-title-splash">
+          <Typography variant="h4" color="primary">Starts with a great coach</Typography>
+        </div> 
+      </div>
     </div>
     {/* <div className="carousel-splash">
       {/* <Carousel

@@ -5,6 +5,13 @@
   height: 40px;
 }
 
+.top-splash-nav{
+  display: flex;
+  background-color: #252466;
+  justify-content: flex-end;
+  height: 40px;
+}
+
 .nav-bar-buttons{
   display: flex;
   align-items: center;
