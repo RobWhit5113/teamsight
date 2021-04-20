@@ -17,13 +17,13 @@ function Footer() {
         </Typography>
       </div>
       <div className="footer-links">
-        <Typography variant="body1" color="secondary" onclick={externalHandle}
+        <Typography variant="body1" color="secondary" onClick={externalHandle}
         id={"https://www.linkedin.com/in/rob-whitacre-825434113/"}>
           linkedin
         </Typography>
       </div>
       <div className="footer-links">
-        <Typography variant="body1" color="secondary" onclick={externalHandle}
+        <Typography variant="body1" color="secondary" onClick={externalHandle}
         id={"https://github.com/RobWhit5113"}>
           github
         </Typography>
