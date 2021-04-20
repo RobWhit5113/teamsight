@@ -21,3 +21,9 @@
   border-radius: 5px;
   background-color: #F2F2F2;
 }
+
+.goals-title{
+  display: flex;
+  justify-content: center;
+  margin: 40px 0px
+}

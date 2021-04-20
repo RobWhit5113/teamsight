@@ -25,8 +25,11 @@ const wkGoals = goals.filter(goal => goal.type == "weekly")
 const yrGoals = goals.filter(goal => goal.type == "eoy")
 
 return (
-  <>
+  <div className='goals-page-container'>
     <Navigation />
+    <div className="goals-title">
+      <Typography variant="h2" color="primary">Your Goals</Typography>
+    </div>
     <div className="entire-goals-container">
       <div className="weekly-goals-container">
         <Typography variant="h4" color="primary">my weekly goals</Typography>
@@ -53,7 +56,7 @@ return (
       <NewGoalModal />
       </div>
     </div>
-  </>
+  </div>
 )
 }
 
