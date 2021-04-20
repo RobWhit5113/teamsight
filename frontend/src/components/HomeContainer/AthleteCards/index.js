@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 import { getRoster } from '../../../store/roster';
 import {useDispatch} from 'react-redux'
@@ -16,21 +16,43 @@ import './AthleteCards.css'
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    maxWidth: 400,
-    maxHeight: 275
+    maxWidth: 800,
+    maxHeight: 275,
+    alignContent: 'center'
   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
     transform: 'scale(1.0)',
+    color:'white'
   },
-  title: {
-    fontSize: 14,
-  },
+  // title: {
+  //   fontSize: 14,
+  // },
   pos: {
     marginBottom: 12,
+    color:'white'
   },
 });
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: `#4DCCBD`,
+    color: 'white'
+  },
+  body: {
+    fontSize: 16
+  }
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)':{
+    backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`,
+    },
+  },
+}))(TableRow);
+
 
 export default function AthleteCards() {
   const classes = useStyles();
@@ -94,20 +116,20 @@ export default function AthleteCards() {
 
   return (
     <div className="athlete-table">
-      <TableContainer>
-        <Table>
+      <TableContainer className="MuiTableContainer-root">
+        <Table className={classes.root}>
           <TableHead>
             <TableRow>
-              <TableCell key="lastName" >
+              <StyledTableCell key="lastName" >
                 <TableSortLabel
                 active={valueToOrderBy === "lastName"}
                 direction={valueToOrderBy === "lastName" ? orderDirection : "asc"}
                 onClick={createSortHandler("lastName")}
-                >
+                classes={{active: "active"}}>
                   Name
                 </TableSortLabel>
-              </TableCell>
-              <TableCell key="score" >
+              </StyledTableCell>
+              <StyledTableCell key="score" >
                 <TableSortLabel
                 active={valueToOrderBy === "score"}
                 direction={valueToOrderBy === "score" ? orderDirection : "asc"}
@@ -115,8 +137,8 @@ export default function AthleteCards() {
                 >
                   Score
                 </TableSortLabel>
-              </TableCell>
-              <TableCell key="question" >
+              </StyledTableCell>
+              <StyledTableCell key="question" >
                 <TableSortLabel
                 active={valueToOrderBy === "question"}
                 direction={valueToOrderBy === "question" ? orderDirection : "asc"}
@@ -124,13 +146,13 @@ export default function AthleteCards() {
                 >
                   Question
                 </TableSortLabel>
-              </TableCell>
+              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
           {sortedRowInformation(athletes, getComparator(orderDirection, valueToOrderBy))
           .map((person) => (
-            <TableRow key={person.id}>
+            <StyledTableRow key={person.id}>
               <TableCell>
                 {person.firstName} {person.lastName}
               </TableCell>
@@ -140,7 +162,7 @@ export default function AthleteCards() {
               <TableCell>
                 {person.Surveys[0].question}
               </TableCell>
-            </TableRow>
+            </StyledTableRow>
           ))}
           </TableBody>
         </Table>

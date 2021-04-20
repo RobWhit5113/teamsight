@@ -1,3 +1,5 @@
 purple - #252466
 light purple - rgba(127, 125, 227, 0.2);
 green - #4DCCBD
+
+backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`,

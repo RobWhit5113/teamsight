@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 import { getRoster } from '../../../store/roster';
@@ -13,27 +13,25 @@ import TableSortLabel from '@material-ui/core/TableSortLabel'
 import TableRow from '@material-ui/core/TableRow';
 
 
-const useStyles = makeStyles({
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: `#4DCCBD`,
+    color: 'white'
+  },
+  body: {
+    fontSize: 16
+  }
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
   root: {
-    minWidth: 275,
-    maxWidth: 400,
-    maxHeight: 275
+    '&:nth-of-type(odd)':{
+    backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`,
+    },
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(1.0)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+}))(TableRow);
 
 export default function RosterTable() {
-  const classes = useStyles();
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
   const roster = useSelector(state => state?.roster)
@@ -98,7 +96,7 @@ export default function RosterTable() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell key="firstName" >
+              <StyledTableCell key="firstName" >
                 <TableSortLabel
                 active={valueToOrderBy === "firstName"}
                 direction={valueToOrderBy === "firstName" ? orderDirection : "asc"}
@@ -106,8 +104,8 @@ export default function RosterTable() {
                 >
                   First Name
                 </TableSortLabel>
-              </TableCell>
-              <TableCell key="lastName" >
+              </StyledTableCell>
+              <StyledTableCell key="lastName" >
                 <TableSortLabel
                 active={valueToOrderBy === "lastName"}
                 direction={valueToOrderBy === "lastName" ? orderDirection : "asc"}
@@ -115,8 +113,8 @@ export default function RosterTable() {
                 >
                   Last Name
                 </TableSortLabel>
-              </TableCell>
-              <TableCell key="email" >
+              </StyledTableCell>
+              <StyledTableCell key="email" >
                 <TableSortLabel
                 active={valueToOrderBy === "email"}
                 direction={valueToOrderBy === "email" ? orderDirection : "asc"}
@@ -124,13 +122,13 @@ export default function RosterTable() {
                 >
                   Email
                 </TableSortLabel>
-              </TableCell>
+              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
           {sortedRowInformation(athletes, getComparator(orderDirection, valueToOrderBy))
           .map((person) => (
-            <TableRow key={person.id}>
+            <StyledTableRow key={person.id}>
               <TableCell>
                 {person.firstName} 
               </TableCell>
@@ -140,7 +138,7 @@ export default function RosterTable() {
               <TableCell>
                 {person.email}
               </TableCell>
-            </TableRow>
+            </StyledTableRow>
           ))}
           </TableBody>
         </Table>
