@@ -1,10 +1,3 @@
-.footer-container{
-  display: flex;
-  background-color: #252466;
-  justify-content: flex-end;
-  height: 40px;
-}
-
 .footer-creation{
   display: flex;
   justify-content: flex-start;
@@ -22,4 +15,14 @@
 
 .footer-links:hover{
   border-bottom: 1px solid #4DCCBD
+}
+
+.footer-container {
+    display: flex;
+    background-color: #252466;
+    justify-content: flex-end;
+    height: 40px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }

@@ -1,5 +1,15 @@
-/* TODO Add site wide styles */
 * {
   margin: 0;
   padding: 0
+}
+
+div#root {
+    height: 100vh;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }

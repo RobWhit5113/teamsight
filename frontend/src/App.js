@@ -14,6 +14,7 @@ import GoalsComponent from "./components/Goals";
 import Profile from "./components/Profile";
 import Roster from "./components/Roster";
 import CoachPosts from "./components/CoachPosts";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="page-container">
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
@@ -62,7 +63,8 @@ function App() {
           </Route>
         </Switch>
       )}
-    </>
+      <Footer/>
+    </div>
   );
 }
 

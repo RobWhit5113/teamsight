@@ -65,7 +65,7 @@ function PrePracticeForm(){
   
 
   return(
-    <>
+    <div className="survey-container">
       <div className="survey-title">
         <Typography variant="h2" color="primary">Check-In</Typography>
       </div>
@@ -116,7 +116,7 @@ function PrePracticeForm(){
               )}
           </div>
       </div>
-    </>
+    </div>
   )
 
 }

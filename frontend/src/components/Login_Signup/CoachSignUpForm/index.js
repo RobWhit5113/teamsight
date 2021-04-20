@@ -39,7 +39,7 @@ function CoachSignupFormPage() {
   };
 
   return(
-    <>
+    <div className="signup-page-container">
       <div className="signup-title">
         <Typography variant="h3" color="primary">Sign Up</Typography>
       </div>
@@ -91,7 +91,7 @@ function CoachSignupFormPage() {
             </div>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -35,7 +35,7 @@ function TeamSignUpForm() {
   };
 
   return(
-    <>
+    <div className="teamSignup-container">
       <div className="teamsignup-title">
         <Typography variant="h2" color="primary">Team Sign Up</Typography>
       </div>
@@ -71,7 +71,7 @@ function TeamSignUpForm() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 
