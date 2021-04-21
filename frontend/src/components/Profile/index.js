@@ -10,6 +10,7 @@ function Profile(){
   const sessionUser = useSelector(state => state?.session.user);
   const teamObj = useSelector(state => state?.team)
   const team = Object.values(teamObj)
+  console.log(team[0].teamName)
   const dispatch = useDispatch()
 
   
@@ -42,8 +43,9 @@ function Profile(){
           </TextField>
           <div className="team-logo-profile">
             <Typography variant="body1" color="primary">
-              {/* team: {team[0].teamName} */}
+              {team[0].teamName}
             </Typography>
+            <img src={team[0].teamLogo}></img>
           </div>
         </div>
         
