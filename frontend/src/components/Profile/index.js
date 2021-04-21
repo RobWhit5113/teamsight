@@ -10,7 +10,6 @@ function Profile(){
   const sessionUser = useSelector(state => state?.session.user);
   const teamObj = useSelector(state => state?.team)
   const team = Object.values(teamObj)
-  console.log(team[0].teamName)
   const dispatch = useDispatch()
 
   
@@ -29,23 +28,37 @@ function Profile(){
           <Typography variant="h3" color="primary">My Profile</Typography>
         </div>
         <div className="my-profile-info">
-          <TextField variant="outlined"  label="First Name" color="primary"
-          value={sessionUser.firstName} disabled
-          style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}>
-          </TextField>
-          <TextField variant="outlined"  label="Last Name" color="primary"
-          value={sessionUser.lastName} disabled
-          style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}>
-          </TextField>
-          <TextField variant="outlined"  label="Email" color="primary"
-          value={sessionUser.email} disabled
-          style={{backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`}}>
-          </TextField>
-          <div className="team-logo-profile">
-            <Typography variant="body1" color="primary">
-              {team[0].teamName}
-            </Typography>
-            <img src={team[0].teamLogo}></img>
+          <div className="profile-title">
+            <Typography variant="h4" color="primary">You</Typography>
+          </div>
+          <div className="profile-name">
+            <Typography variant="h6" color="primary">Name: </Typography>
+            <div className="name-text">
+              <Typography variant="h6" color="primary">
+                {sessionUser.firstName} {sessionUser.lastName}
+              </Typography>
+            </div>
+          </div>
+          <div className="profile-email">
+            <Typography variant="h6" color="primary">Email: </Typography>
+            <div className="email-text">
+              <Typography variant="h6" color="primary">
+                {sessionUser.email}
+              </Typography>
+            </div>
+          </div>
+            <div className="profile-team-title">
+              <Typography variant="h4" color="primary">Your Team</Typography>
+            </div>
+          <div className="team-profile">
+            <div className="team-logo">
+              <img className="team-image" src={team[0]?.teamLogo}></img>
+            </div>
+            <div className="team-name">
+              <Typography variant="h6" color="primary">
+                {team[0]?.teamName}
+              </Typography>
+            </div>
           </div>
         </div>
         
