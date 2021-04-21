@@ -34,12 +34,12 @@ function Navigation(){
   const coachNav = (
     <>
       <div className="roster-nav" onClick={handleRoster}>
-        <Typography variant="body1" color="primary">
+        <Typography variant="h6" color="secondary">
           Roster
         </Typography>
       </div>
       <div className="posts-nav">
-        <Typography variant="body1" color="primary" onClick={handlePosts}>
+        <Typography variant="h6" color="secondary" onClick={handlePosts}>
           Posts
         </Typography>
       </div>
@@ -49,12 +49,12 @@ function Navigation(){
     const athleteNav = (
     <>
       <div className="checkin-nav" onClick={handleCheckIn}>
-        <Typography variant="body1" color="primary">
+        <Typography variant="h6" color="secondary">
           Check-In
         </Typography>
       </div>
       <div className="goals-nav" onClick={handleGoals}>
-        <Typography variant="body1" color="primary">
+        <Typography variant="h6" color="secondary">
           Goals
         </Typography>
       </div>
@@ -63,9 +63,12 @@ function Navigation(){
 
   return (
     <div className="top-nav">
+      <div className="nav-logo-text">
+        <Typography variant="h5" color="secondary">teamsight</Typography>
+      </div>
       <div className="nav-bar-buttons">
       <div className="home-nav" onClick={handleHome}>
-        <Typography variant="body1" color="primary">
+        <Typography variant="h6" color="secondary">
           Home
         </Typography>
       </div>
