@@ -16,10 +16,8 @@ function SplashPage(){
 
 return (
   <div className="splash-container">
-    <div className= 'splash-header'>
-      <SplashNav/>
-      <div>
-      </div>
+    <header className= 'splash-header'>
+        <SplashNav/>
       <div className="athlete-title-splash">
         <Typography variant="h4" color="primary">Every great swimmer</Typography>
       </div>
@@ -28,7 +26,7 @@ return (
           <Typography variant="h4" color="primary">Starts with a great coach</Typography>
         </div> 
       </div>
-    </div>
+    </header>
     <div className="information-container">
         <div className="splash-info">
           <svg height="64" viewBox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
