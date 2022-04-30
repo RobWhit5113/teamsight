@@ -7,14 +7,14 @@ import "./CoachesCorner.css"
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 400,
-      minHeight: 500,
+      maxWidth: '350px',
+      minHeight: 'fit-content',
       backgroundColor: `rgba(${127}, ${125}, ${227}, ${.2})`
     },
-    media: {
-      height:0,
-      paddingTop: '56.25%'
-    }
+    // media: {
+    //   height:0,
+    //   paddingTop: '56.25%'
+    // }
   }))
 
   
@@ -49,9 +49,9 @@ import "./CoachesCorner.css"
                 <Card className={classes.root} key={post.id}>
                     <CardHeader
                     title={post.title} />
-                    <CardMedia
+                    {/* <CardMedia
                     className={classes.media} 
-                    image={post.postMedia}/>
+                    image={post.postMedia}/> */}
                     <CardContent>
                       <Typography variant="body1">{post.post}</Typography>
                     </CardContent>

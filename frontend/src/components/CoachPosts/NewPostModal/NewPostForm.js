@@ -54,10 +54,10 @@ export default function NewPostForm({setShowModal}) {
             multiline className="new-post-input" onChange={(e) => setPost(e.target.value)} 
             className={classes.root} required fullWidth/>
           </div>
-          <div className="post-media-upload">
+          {/* <div className="post-media-upload">
               <Typography variant="body1">Choose an image for your post!</Typography>
               <input className="choose-file-post" type="file" onChange={updateFile}/>
-          </div>
+          </div> */}
           <div className="new-post-input">
           <TextField variant="outlined" label="link" placeholder="copy a link to a video or article here!" value={externalLink}
             multiline className="new-post-input" 
